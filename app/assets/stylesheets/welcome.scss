@@ -1,0 +1,35 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.jumbotron {
+	background-image: image-url("handocean.jpg");
+	background-size: cover;
+  width: 100%;
+	color: white;
+	height: 60vh;
+
+}
+
+.jumbotron h1 {
+	position: relative;
+	text-align: right;
+	margin-right: 5%;
+}
+
+#catchPhrase h1{
+	text-align: center;
+	font-size: 50px;
+}
+.centered{
+	padding-top: 5%;
+	text-align: center;
+}
+
+button {
+	font-size: 40px;
+	margin: auto;
+	text-align: center;
+
+}
