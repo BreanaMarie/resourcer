@@ -1,0 +1,28 @@
+<section>
+  <div class="container">
+      <h1>All Profiles</h1>
+      <table class="table thumbnail" width:"100%">
+        <% @profiles.each do |profile| %>
+          <tr>
+            <td>
+              <%= link_to profile_path(profile) do%>
+              <img src="<%=profile.image %>">
+              <% end %>
+            </td>
+            <td>
+              <%= link_to profile_path(profile) do%>
+              <%=profile.firstname%>
+              <% end %> 
+            </td>
+            <td>
+              <%= link_to profile_path(profile) do%>
+              <%=profile.city%>
+              <% end %>
+            </td>
+          </tr >
+        <%end%>
+      </table>
+
+    
+  </div>
+</section>
