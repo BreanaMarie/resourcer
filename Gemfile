@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
 
+gem 'ffaker'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

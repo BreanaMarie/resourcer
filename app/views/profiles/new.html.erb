@@ -1,0 +1,38 @@
+<section>
+  <div class="container">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h1>Sign up for Our AMAZING Cool APP!!!</h1>
+      <%= form_for @profile do |p| %>
+        <%= p.label :firstname %> 
+        <%= p.text_field :firstname, placeholder: "First Name", class:'form-control', autofocus: true %> 
+        <br>
+        <%= p.label :lastname %> 
+        <%= p.text_field :lastname, placeholder: "Last Name", class:'form-control' %> 
+        <br> 
+        <%= p.label :address %>
+        <%= p.text_field :address, placeholder: "Street Number and Street", class:'form-control'%> 
+        <br> 
+        <%= p.label :city %>
+        <%= p.text_field :city, placeholder: "City", class:'form-control'%> 
+        <br> 
+        <%= p.label :state %> 
+        <%= p.text_field :state, placeholder: "State", class:'form-control' %> 
+        <br> 
+        <%= p.label :phone %> 
+        <%= p.text_field :phone, placeholder: "Phone Number", class:'form-control' %> 
+        <br> 
+        <%= p.label :bio %> 
+        <%= p.text_area :bio, placeholder: "Short Bio about yourself", class:'form-control' %> 
+        <br> 
+        <%= p.label :image %>
+        <%= p.text_field :image, placeholder: "Find a picture you like, right click and hit copy image url", class:'form-control'%> 
+        <br> 
+        <div class="text-right">
+          <%= p.submit "Create", class: 'btn btn-primary' %> 
+        </div>
+        <% end %>
+      
+    </div>
+    
+  </div>  
+</section>
