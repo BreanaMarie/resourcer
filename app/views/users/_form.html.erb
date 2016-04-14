@@ -1,0 +1,30 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid. Please input your information again.</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+    </br>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+    </br>
+  </div>
+  <div class="field">
+    <%= f.label :confirm_password %><br>
+    <%= f.text_field :password_confirmation %>
+    </br>
+  </div>
+  <br>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
