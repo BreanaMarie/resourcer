@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find_by_id(params[:id])
+    @profile = Profile.find(params[:id])
     render :show
   end
 
