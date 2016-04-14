@@ -6,6 +6,7 @@
           <img src="<%=@profile.image %>">
         </div>
         <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p>
+        <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
         <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %> 
         
       </div>
@@ -14,9 +15,29 @@
         <p><%=@profile.bio%></p>
         
       </div>
-
+      <hr>
+    </div>
+    <div class="well row">
+      <h1>Employment History</h1>
+      <% @profile.employments.each do |e| %>
+      <div class="col-xs-3">
+        <%= link_to employment_path(e) do%>
+        <%=e.industry %><br>
+        <%=e.title%>
+        <% end %> 
+      </div>
+      <div class="col-xs-3">
+        <%= link_to employment_path(e) do%>
+        <%=e.city%>, <%= e.state %>
+        <% end %>  
+      </div>
+      <div class="col-xs-6">
+        <%= link_to employment_path(e) do%>
+        <%=e.summary%>
+        <% end %>  
+      </div>
+      <%end%>
       
     </div>
-    
   </div>
 </section>
