@@ -1,0 +1,35 @@
+<section>
+  <div class="container">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h1>Update your employment history</h1>
+      <%= form_for @employment do |e| %>
+        <%= e.label :industry %> 
+        <%= e.text_field :industry, placeholder: "industry", class:'form-control', autofocus: true %> 
+        <br>
+        <%= e.label :title %> 
+        <%= e.text_field :title, placeholder: "Title", class:'form-control' %> 
+        <br> 
+        <%= e.label :company %>
+        <%= e.text_field :company, placeholder: "Company", class:'form-control'%> 
+        <br> 
+        <%= e.label :city %>
+        <%= e.text_field :city, placeholder: "City", class:'form-control'%> 
+        <br> 
+        <%= e.label :state %> 
+        <%= e.text_field :state, placeholder: "State", class:'form-control' %> 
+        <br> 
+        <%= e.label :summary %> 
+        <%= e.text_area :summary, placeholder: "Short summary of scope of work and responsibilities", class:'form-control' %> 
+        <br> 
+        <%= e.label :companyimg %>
+        <%= e.text_field :companyimg, placeholder: "Find a picture you like, right click and hit copy image url", class:'form-control'%> 
+        <br> 
+        <div class="text-right">
+          <%= e.submit "Update", class: 'btn btn-primary' %> 
+        </div>
+        <% end %>
+      
+    </div>
+    
+  </div>  
+</section>
