@@ -1,0 +1,33 @@
+<section>
+  <div class="container">
+      <h1>All Employment Recods</h1>
+      <table class="table" width:"100%">
+        <% @employments.each do |employment| %>
+          <tr>
+            <td>
+              <%= link_to employment_path(employment) do%>
+              <%=employment.profile_id  %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to employment_path(employment) do%>
+              <%=employment.industry %><br>
+              <%=employment.title%>
+              <% end %> 
+            </td>
+            <td>
+              <%= link_to employment_path(employment) do%>
+              <%=employment.city%>, <%= employment.state %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to employment_path(employment) do%>
+              <%=employment.summary%>
+              <% end %>
+            </td>
+          </tr >
+        <%end%>
+      </table>
+    
+  </div>
+</section>

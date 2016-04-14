@@ -1,0 +1,22 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <p><%= @employment.city%>,<%= @employment.state%></p>
+        <p><%= @employment.startdate %><br>
+        <%= @employment.enddate %></p>
+        <%= @employment.status %>
+         <%= button_to "Edit Job", edit_employment_path, class:" btn", method: :get %> 
+          <%= button_to "Delete Job", employment_path, class:" btn", method: :delete %>  
+      </div>
+      <div class="col-xs-9">
+        <h1><%= @employment.title %></h1>
+        <h2><%= @employment.industry %></h2>
+        <p><%= @employment.summary %></p>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
