@@ -35,10 +35,11 @@ class UsersController < ApplicationController
   def update
   end
 
-  # DELETE /users/id
+# DELETE /users/id
   def destroy
   end
 
+# make it private
   private
   def set_user
     @user = User.find(params[:id])
