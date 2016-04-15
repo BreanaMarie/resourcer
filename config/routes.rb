@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :employments
   resources :profiles
   resources :users
+  resources :sessions
 
 end
