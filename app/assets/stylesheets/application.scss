@@ -15,6 +15,10 @@
 @import "bootstrap";
 
 // navigation bar
+nav {
+	z-index: 900;
+}
+
 .navbar {
 	margin-bottom: 0;
 	padding-bottom: 0;

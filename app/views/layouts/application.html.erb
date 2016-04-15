@@ -8,8 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%=render partial: "./layouts/navbar"%>
+<% if (current_page?(controller:'welcome', action:'index'))%>
+  <%= render partial: "./layouts/navhome" %>
+<% else%>
+  <%=render partial: "./layouts/navbar"%>
+<%end%>
 <%= yield %>
 <%=render partial: "./layouts/footer"%>
 </body>
