@@ -24,7 +24,8 @@ class UsersController < ApplicationController
     if @user.save
       login(@user)
       create_profile @current_user.id
-      redirect_to root_url, notice: "thanks!"
+      add_default_image @user.profile
+      redirect_to @user.profile
     else
       render "new"
     end
