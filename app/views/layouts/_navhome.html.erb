@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %> 
           <% @user = current_user %> 
-          <li><a href="/users/<%=@user.id%>"><%= "Welcome #{@user.profile.firstname}" %></a></li>
+          <li><a href="/profiles/<%=@user.profile.id%>"><%= "Welcome #{@user.profile.firstname}" %></a></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
       <% else %> 
         <li><%= link_to "Log in", new_session_path, method: :get %></li>

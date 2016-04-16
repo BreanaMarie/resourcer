@@ -31,7 +31,14 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <% if logged_in? %> 
+            <% @user = current_user %> 
+            <li><a href="/profiles/<%=@user.profile.id%>"><%= "Welcome #{@user.profile.firstname}" %></a></li>
+            <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% else %> 
+          <li><%= link_to "Log in", new_session_path, method: :get %></li>
+          <li><%= link_to "Sign Up", new_user_path, method: :get %></li>
+        <% end %> 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">

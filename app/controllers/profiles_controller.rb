@@ -17,11 +17,7 @@ class ProfilesController < ApplicationController
   def create
     profile_params = params.require(:profile).permit(:user_id, :firstname, :lastname, :address, :city, :state, :phone, :image, :bio)
     @profile = Profile.create(profile_params)
-    if @profile.save
-      redirect_to @profile
-    else
-      render :new
-    end
+    render :new
   end
 
   def edit
