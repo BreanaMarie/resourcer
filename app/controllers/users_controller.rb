@@ -20,8 +20,12 @@ class UsersController < ApplicationController
 # saves user
   def create
     @user = User.new(user_params)
+    @current_user = current_user
     if @user.save
-      redirect_to root_url, notice: "thanks!"
+      login(@user)
+      create_profile @current_user.id
+      add_default_image @user.profile
+      redirect_to @user.profile
     else
       render "new"
     end
@@ -37,6 +41,10 @@ class UsersController < ApplicationController
 
 # DELETE /users/id
   def destroy
+  end
+
+  def create_profile user_id
+    Profile.create(user_id: user_id)
   end
 
 # make it private

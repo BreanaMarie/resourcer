@@ -3,7 +3,7 @@
     <div class="row">
       <div id="profileside" class="col-xs-4">
         <div id="profileimage">
-          <img src="<%=@profile.image %>">
+          <%= image_tag @profile.image %>
         </div>
         <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p>
         <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
@@ -11,7 +11,11 @@
         
       </div>
       <div class="col-xs-8">
-        <h2>Your Dashboard</h2>
+        <% if @profile.full_name.blank? %>
+        <h2>Please Update Your Dashboard</h2>
+        <%else%>
+        <%= "#{@profile.full_name}"%>
+        <%end%>
         <p><%=@profile.bio%></p>
         
       </div>

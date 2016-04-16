@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  include ProfilesHelper
   def index
     @profiles = Profile.all
     render :index
@@ -17,11 +18,8 @@ class ProfilesController < ApplicationController
   def create
     profile_params = params.require(:profile).permit(:user_id, :firstname, :lastname, :address, :city, :state, :phone, :image, :bio)
     @profile = Profile.create(profile_params)
-    if @profile.save
-      redirect_to @profile
-    else
-      render :new
-    end
+    add_default_image @profile
+    render :new
   end
 
   def edit
@@ -33,6 +31,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     updated_attributes = params.require(:profile).permit(:user_id, :firstname, :lastname, :address, :city, :state, :phone, :image, :bio)
     @profile.update_attributes(updated_attributes)
+    add_default_image @profile
     redirect_to @profile
   end
 
@@ -40,4 +39,5 @@ class ProfilesController < ApplicationController
     Profile.destroy(params[:id])
     redirect_to "/"
   end
+
 end

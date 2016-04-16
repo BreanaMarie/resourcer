@@ -5,11 +5,17 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      session[:used_id] = user.id
+      session[:user_id] = user.id
+      login(user)
       redirect_to root_url, notice: "Logged in!"
     else
       flash.now.alert = "Email or password not recognized"
       render "new"
     end
+  end
+
+  def destroy
+    logout
+    redirect_to root_path 
   end
 end
