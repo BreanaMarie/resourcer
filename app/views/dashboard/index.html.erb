@@ -21,22 +21,55 @@
 
     <h1>Notifications</h1>
     <hr>
+    <h2>Pending Requests</h2>
+    <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
+    <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
     <div class="row notifications">
-      <!-- *** TODO for loop where friendship status is estabilished and event date is suggested -->
-      <div class="col-xs-3">
-        <%= image_tag "profiledefault" %>  
+        <div class="col-xs-3 center">
+          <%= image_tag friendship.user.profile.image %> 
+          <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
+        </div>
+        <div class="col-xs-7">
+          <h3><%=friendship.user.profile.full_name %> requested a meeting</h3>
+        <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
+          <p>Body of message</p> 
+          <p>Desired role: </p>
+        <!-- show only if provided -->
+          <p>Job URL</p>
+        </div>
+        <div class="col-xs-2">
+
+          <%= button_to "Accept Request", friendship, :class =>"btn btn-primary", :method => :put %>
+         <br>
+          <%= button_to "Decline Request", friendship, :class =>"btn btn-danger", :method => :delete %>
+        </div>
       </div>
-      <div class="col-xs-7">
-        <h2>Full Name</h2> <p>date sent</p>
-        <p>time since date created field</p>
-        
-      </div>
-      <div class="col-xs-2">
-        <button class="btn btn-primary">Accept Time</button>
-        <br>
-        <button class="btn btn-danger">Decline Time</button>
+    <% end %>
+ 
+
+    <!-- *** TODO for loop where friendship status is estabilished and event date is suggested -->
+    <h2>Messages</h2>
+    <div class="row notifications">
+      <% for friendship in Friendship.where(status: "confirm", friend_id: current_user.id)%>
+           <div class="col-xs-3 center">
+          <%= image_tag friendship.user.profile.image %> 
+          <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
+        </div>
+        <div class="col-xs-7">
+          <h3><%=friendship.user.profile.full_name %> requested a meeting</h3>
+    <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
+          <p>Body of message</p> 
+          <p>Desired role: </p>
+    <!-- show only if provided -->
+          <p>Job URL</p>
+        </div>
+        <div class="col-xs-2">
+
+          <%= button_to "Respond", new_message_path, :class =>"btn btn-primary", :method => :put %>
+        </div>
       </div>
     </div>
+    <% end %>
     <hr>
 
     <div class="row notifications">
