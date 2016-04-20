@@ -1,0 +1,48 @@
+/* Portrait */
+@media screen and (orientation:portrait) {
+	.jumbotron {
+		background-image: image-url("talktable.jpg");
+		background-size: cover;
+	  width: 100%;
+		color: white;
+		height: 30vh;
+
+	}
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+	.jumbotron {
+		background-image: image-url("talktable.jpg");
+		background-size: cover;
+	  width: 100%;
+		color: white;
+		height: 65vh;
+
+	}
+}
+
+.find {
+	padding-top: 20%;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	border-radius: 50%;
+	width: 100%;
+}
+
+.profile {
+	border: solid;
+	border-width: 1px;
+	border-color: #000;
+	border-radius: 5px;
+
+}
+
+.profile .btn{
+	float: right;
+}

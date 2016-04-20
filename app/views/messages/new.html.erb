@@ -1,0 +1,28 @@
+<section>
+  <div class="container">
+  <div class="col-xs-10 col-xs-offset-1">
+    <h3>Create a new message</h3>
+    <div class= "well clearfix">
+      <%= form_for @message do |f| %>
+        <div>
+          <label>Subject</label>
+          <%= f.text_field :title, class:"form-control", placeholder: "Subject" %>
+        </div>
+        <br>
+        <div>
+          <label>Message:</label>
+          <%= f.text_area :body, rows: 10, class:"form-control", placeholder: "Write your message here" %>
+          <%=f.hidden_field :user_id, :value => current_user.id %>
+          <%=f.hidden_field :author, :value => current_user.profile.full_name %>
+        </div>
+        <br>
+        <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+    
+    
+  </div>
+</section>
