@@ -80,10 +80,15 @@ section{
 ////////// footer //////////
 ////////////////////////////
 #footer {
-	height: 10vh;
-	padding-top: 2%;
+	height: 6vh;
 	background-color:#ff4056;
 	color: #ffffff;
+	line-height: 6vh;
+	font-weight: 300;
+}
+
+#footer-text {
+	margin: 0;
 }
 
 .row {
