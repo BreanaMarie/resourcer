@@ -1,2 +1,11 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<section>
+  <div class="container">
+    <h3><%= @message.title %></h3>
+    <div>
+    <p>From: <%= @message.author %></p>
+     <p><%= @message.body %> </p>
+     <p class="right">Sent: <%= @message.created %></p>
+    </div>
+    
+  </div>
+</section>

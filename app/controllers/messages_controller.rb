@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find_by_id(params[:id])
     @user = User.find_by_id(@message.user_id)
-    @friendship = Friendship.find_by_id(@message.profile_id)
+    # @profile = Profile.find_by_id(@user_id.profile)
+    @friendship = Friendship.find_by_id(@message.friendship_id)
     @friendships = Friendship.all
 
     render :show
@@ -18,7 +19,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message_params = params.require(:message).permit(:title, :author, :content, :friendship_id)
+    message_params = params.require(:message).permit(:title, :author, :body, :friendship_id, :user_id)
     @message = Message.create(message_params)
     @current_user= current_user
     @friendships = Friendship.all

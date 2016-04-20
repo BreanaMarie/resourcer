@@ -47,28 +47,35 @@
     <% end %>
  
 
-    <!-- *** TODO for loop where friendship status is estabilished and event date is suggested -->
+    <!-- *** TODO for loop where friendship status is confirmed show messages recieved -->
     <h2>Messages</h2>
     <div class="row notifications">
-      <% for friendship in Friendship.where(status: "confirm", friend_id: current_user.id)%>
-           <div class="col-xs-3 center">
-          <%= image_tag friendship.user.profile.image %> 
-          <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
-        </div>
-        <div class="col-xs-7">
-          <h3><%=friendship.user.profile.full_name %> requested a meeting</h3>
-    <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
-          <p>Body of message</p> 
-          <p>Desired role: </p>
-    <!-- show only if provided -->
-          <p>Job URL</p>
-        </div>
-        <div class="col-xs-2">
+    <!-- this loop finds where the user is part of a friendship that has been confirmed -->
+      <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
 
+      <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
+        <% for message in Message.where(friendship_id: @friendship) %>
+          <div class="col-xs-3 center">
+            <%= image_tag message.user.profile.image %> 
+            <%= button_to "View Profile", profile_path(message.user.profile), class:"btn btn-primary", method: :get %>
+          </div>
+          <div class="col-xs-7">
+            <h3><%= message.author %> sent you a message</h3>
+            <h4><%= message.title %></h4>
+      <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
+            <p><%= message.body %></p> 
+            <p>Desired role: </p>
+      <!-- show only if provided -->
+            <p>Job URL</p>
+            <p>Sent at: <%= message.created %></p>
+          </div>
+        <div class="col-xs-2">
+        <!-- this should bechanged to a response resource -->
           <%= button_to "Respond", new_message_path, :class =>"btn btn-primary", :method => :put %>
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
     <hr>
 

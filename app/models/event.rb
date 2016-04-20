@@ -1,3 +1,3 @@
 class Event < ActiveRecord::Base
-  belongs_to :friendships
+  belongs_to :user
 end
