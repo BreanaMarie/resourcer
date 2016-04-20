@@ -7,14 +7,17 @@
 }
 
 .jumbotron h1 {
-	margin-top: 15%;
+	margin-top: 13%;
+	padding-left: 1%;
+	padding-right: 1%;
 	text-align: center;
+	font-weight: bolder;
 }
 
 /* Portrait */
 @media screen and (orientation:portrait) {
 	.jumbotron {
-		background-image: image-url("twopeople.jpg");
+		background-image: image-url("banner2.jpg");
 		background-size: cover;
 	  width: 100%;
 		color: white;
@@ -25,18 +28,19 @@
 /* Landscape */
 @media screen and (orientation:landscape) {
 	.jumbotron {
-		background-image: image-url("twopeople.jpg");
-		background-size: cover;
+		background-image: image-url("banner2.jpg");
 	  width: 100%;
 		color: white;
-		height: 65vh;
-
+		height: 40vh;
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 }
 
 #catchPhrase {
 	text-align: left;
 }
+
 
 /////////////////////////////
 ////////// buttons /////////
@@ -51,8 +55,8 @@ button {
 	box-shadow: 1px 1px 1px #9E9E9E;
 	border:0.1em solid #ff4056;
 	background-color: #ff4056;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	padding-left: 25px;
 	padding-right: 25px;
 	font-weight: 300;
