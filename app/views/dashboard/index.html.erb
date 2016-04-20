@@ -1,0 +1,66 @@
+<!-- *** TODO if else statement  -->
+<!-- Show this view if profile is set to candidate -->
+<section>
+  <div class="jumbotron">
+    <div class="find">
+      <button class="btn btn-primary">Find Referrals</button>
+    </div>
+  </div>
+  <div class="container ">
+    <div class="row profile">
+      <div class="col-xs-4">
+        <%= image_tag @current_user.profile.image %>    
+      </div>
+      <div class="col-xs-8">
+        <h2><%= "#{@current_user.profile.full_name}"  %></h2>
+        <h3>Title Desired</h3>
+        <p> saying</p>
+        <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), class:"btn btn-primary", method: :get %> 
+      </div> 
+    </div>
+
+    <h1>Notifications</h1>
+    <hr>
+    <div class="row notifications">
+      <!-- *** TODO for loop where friendship status is estabilished and event date is suggested -->
+      <div class="col-xs-3">
+        <%= image_tag "profiledefault" %>  
+      </div>
+      <div class="col-xs-8">
+        <h2>Full Name</h2> <p>date sent</p>
+        <p>time since date created field</p>
+        
+      </div>
+      <div class="col-xs-1">
+        <button class="btn btn-primary">Accept Time</button>
+        <br>
+        <button class="btn btn-primary">Decline Time</button>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row notifications">
+    
+      <!-- *** TODO for loop where friendship status is established show all messages newest on top -->
+      <div class="col-xs-3">
+        <%= image_tag "profiledefault" %> 
+      </div>
+      <div class="col-xs-8">
+        <h2>Full Name</h2> <p>date sent</p>
+        <p>time since date created field</p>
+        
+      </div>
+      <div class="col-xs-1">
+        <button class="btn btn-primary">See Message</button>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- *** TODO show this view if profile is set to sourcer -->
+<section>
+  <div class="container">
+    
+  </div>
+</section>

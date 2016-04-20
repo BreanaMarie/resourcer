@@ -7,7 +7,17 @@
         </div>
         <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p>
         <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-        <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %> 
+        <!-- Show request friendship if on another users page otherwise show edit profile button -->
+        <% if session[:user_id] != @profile.user.id %>
+          <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn" %>
+        <!-- TODO if user is already friends alert already friends  -->
+
+        <!-- if user is not firends offer creation of friendship -->
+        <%else%>
+         <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %> 
+            
+        <%end%>
+
         
       </div>
       <div class="col-xs-8">
