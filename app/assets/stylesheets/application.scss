@@ -13,8 +13,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Courgette);
 
-// navigation bar
+/////////////////////////////////////
+////////// navigation bar //////////
+////////////////////////////////////
 nav {
 	z-index: 900;
 }
@@ -22,24 +25,69 @@ nav {
 .navbar {
 	margin-bottom: 0;
 	padding-bottom: 0;
+	border: 0;
 }
 
-//main page view
+.navbar-brand {
+font-family: 'Courgette', cursive;
+font-size: 20pt;
+}
+
+.navbar-default .navbar-brand {
+	color: #ffffff;
+}
+
+.navbar-default .navbar-brand a:hover {
+color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #ff4056;  //Sets text hover color on navbar
+background-color: #ffffff;  //Sets background hover color on navbar
+}
+
+.navbar-default {
+		background-color:#ff4056;
+}
+
+//Sets dropdown text color and background on hover
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #ff4056;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff; //Change active text color
+}
+
+////////////////////////////////////
+////////// main page view //////////
+////////////////////////////////////
 section{
 	padding-bottom: 5%;
 	min-height: 85vh;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-// footer
+////////////////////////////
+////////// footer //////////
+////////////////////////////
 #footer {
 	height: 10vh;
 	padding-top: 2%;
-	background-color: #d6f5f5;
+	background-color:#ff4056;
+}
+
+.row {
+	margin: 0;
 }
 
 .left {
 	text-align: left;
-
 }
 
 .center {
@@ -48,5 +96,4 @@ section{
 
 .right {
 	text-align: right;
-
 }
