@@ -13,8 +13,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro|Courgette|Roboto);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro|Roboto:300,400|Courgette);
 
+body {
+	font-family: 'Roboto', sans-serif;
+}
 /////////////////////////////////////
 ////////// navigation bar //////////
 ////////////////////////////////////
@@ -80,6 +83,7 @@ section{
 	height: 10vh;
 	padding-top: 2%;
 	background-color:#ff4056;
+	color: #ffffff;
 }
 
 .row {
