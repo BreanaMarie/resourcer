@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
 
 gem 'ffaker'
+gem 'jquery-turbolinks'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
