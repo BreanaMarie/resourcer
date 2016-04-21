@@ -1,7 +1,14 @@
 class MessagesController < ApplicationController
+  def index
+    @messages = Message.all
+    @current_user = current_user
+
+    render :index
+  end
+
   def show
     @message = Message.find_by_id(params[:id])
-    @user = User.find_by_id(@message.user_id)
+    @user = User.find_by_id(message.user_id)
     @current_user = current_user
     @friendship = Friendship.find_by_id(@message.friendship_id)
     @friendships = Friendship.all

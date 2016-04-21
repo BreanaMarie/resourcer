@@ -9,9 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<% if (current_page?(controller:'welcome', action:'index'))%>
-  <%= render partial: "./layouts/navhome" %>
-<% else%>
+<%= render partial: "./layouts/navhome" %>
+<% if !(current_page?(controller:'welcome', action:'index'))%>
   <%=render partial: "./layouts/navbar"%>
 <%end%>
 <%= yield %>
