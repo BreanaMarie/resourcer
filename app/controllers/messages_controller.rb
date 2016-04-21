@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find_by_id(params[:id])
     @user = User.find_by_id(@message.user_id)
-    # @profile = Profile.find_by_id(@user_id.profile)
+    @current_user = current_user
     @friendship = Friendship.find_by_id(@message.friendship_id)
     @friendships = Friendship.all
 

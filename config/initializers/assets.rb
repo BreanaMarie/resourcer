@@ -15,6 +15,7 @@ events.css
 friendships.css
 messages.css
 profiles.css
+responses.css
 users.css
 welcome.css
 sessions.css

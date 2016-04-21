@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   resources :employments
   resources :events
   resources :friendships
-  resources :messages
   resources :profiles
   resources :sessions
   resources :users
+
+  resources :messages do
+    resources :responses
+  end
 
 end
