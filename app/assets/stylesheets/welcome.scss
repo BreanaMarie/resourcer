@@ -45,6 +45,7 @@
 	border:0.1em solid #EEEEEE;
 	padding-bottom: 25px;
 	margin-bottom: -30px;
+	display: inline-block;
 }
 
 
@@ -52,32 +53,27 @@
 ////////// catchPhrase //////
 /////////////////////////////
 .welcome-info {
-	// padding: 0px 5px 10px 5px;
+	padding-bottom: 10px;
 }
 
 .info-text {
-	// padding-bottom: 15px;
-	padding: 0px 5px 10px 5px;
-
-
+	padding: 0px 10px 10px 10px;
+	font: 'Source Sans Pro', sans-serif;
+	font-weight: bolder;
 }
 
 .welcome-icon {
-	padding-top: 10px;
+	padding-top: 10px
 }
 
+.middle-line {
+	border-right: 1px solid #ff4056;
+	margin: 15px 0px 25px 0px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.middle-adjust {
+	margin: 15px 0px 25px 0px;
+}
 
 /////////////////////////////
 ////////// buttons /////////
