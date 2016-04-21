@@ -1,7 +1,7 @@
-class Message < ActiveRecord::Base
-  belongs_to :friendship
-  belongs_to :user
-  has_many :responses
+class Response < ActiveRecord::Base
+  belongs_to :message
+  
+  default_scope {order('created_at DESC')}
 
   # takes the time created_at and converts it to pacific standard time and then into a readable date and time
   def created

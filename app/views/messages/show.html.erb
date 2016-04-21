@@ -6,6 +6,34 @@
      <p><%= @message.body %> </p>
      <p class="right">Sent: <%= @message.created %></p>
     </div>
+
+    <!-- Show Responses -->
+     <div class="row">
+      <h2> Responses: </h2>
+      <% @message.responses.each do |r| %>
+      <div class="row">
+        <h5>From: <%= r.author %></h5>
+        <p> <%= r.content %> </p>
+        <p class="right"> <%= r.created %></p>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+    <!-- Add Comment Form -->
+    <div class="row">
+      <h2>Add a response:</h2>
+      <%= form_for([@message, @message.responses.build]) do |m| %>
+        <div class="field">
+          <%= m.text_area :content %>
+          <%=m.hidden_field :user_id, :value => current_user.id %>
+          <%=m.hidden_field :author, :value => current_user.profile.full_name %>
+        </div>
+        <div class="actions">
+          <%= m.submit %>
+        </div>
+      <% end %>
+    </div>
+    <!--  -->
     
   </div>
 </section>
