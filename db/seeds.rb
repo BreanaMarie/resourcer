@@ -22,12 +22,12 @@ require 'ffaker'
   1.times do
 
     new_profile = Profile.new
-    new_profile.firstname = FFaker::Name.name
-    new_profile.lastname = FFaker::Name.name
-    new_profile.address = FFaker::Address.street_address
+    new_profile.firstname = FFaker::Name.first_name
+    new_profile.lastname = FFaker::Name.last_name
+    new_profile.role = FFaker::Company.position
     new_profile.city = FFaker::Address.city
     new_profile.state = FFaker::AddressUS.state
-    new_profile.phone = FFaker::PhoneNumber.short_phone_number
+    new_profile.linkedin = FFaker::Internet.http_url
     new_profile.image = FFaker::Avatar.image
     new_profile.bio = FFaker::Lorem.paragraph(3)
 
@@ -50,4 +50,26 @@ require 'ffaker'
       new_profile.employments.push new_employment
     end
   end
+
+  5.times do 
+    new_message = Message.new
+    new_message.title = FFaker::Movie.title
+    new_message.body = FFaker::Lorem.paragraph
+    new_message.joburl = FFaker::Internet.http_url
+    new_message.role = FFaker::Company.position
+
+    new_message.friendship_id = rand(1..20)
+    new_message.save
+    new_user.messages.push new_message
+  end
+
+  4.times do
+    new_friendship = Friendship.new
+    new_friendship.friend_id = rand(1..20)
+    new_friendship.status = "pending"
+
+    new_friendship.save
+    new_user.friendships.push new_friendship
+  end
 end
+
