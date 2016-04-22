@@ -38,12 +38,13 @@ font-family: 'Lobster', cursive;
 font-size: 20pt;
 }
 
-.navbar-default .navbar-brand {
+
+.navbar-header .navbar-brand {
 	color: #ffffff;
 }
 
-.navbar-default .navbar-brand a:hover {
-color: #ffffff;
+.navbar-header .navbar-brand:hover {
+	color: #ffffff;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -65,6 +66,32 @@ background-color: #ffffff;  //Sets background hover color on navbar
 .navbar-default .navbar-nav > li > a {
   color: #ffffff; //Change active text color
 }
+
+/////////////////////////////////////
+////////// collapsed nav //////////
+////////////////////////////////////
+.navbar-toggle {
+	border: none;
+	box-shadow: none;
+	background-color: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+#hamburger:hover {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+#hamburger:focus {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
 
 ////////////////////////////////////
 ////////// main page view //////////
