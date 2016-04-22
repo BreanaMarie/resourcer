@@ -39,24 +39,30 @@
 	}
 }
 
-#catchPhrase {
-	text-align: left;
-}
+
+/////////////////////////////
+////////// welcome //////
+/////////////////////////////
+// #welcome {
+// 	text-align: left;
+// 	padding-bottom: -10px;
+//
+// }
+//
 
 #outline {
 	box-shadow: 1px 1px 1px #9E9E9E;
 	border:0.1em solid #EEEEEE;
-	padding-bottom: 25px;
-	margin-bottom: -30px;
+	padding-bottom: -100px;
 	display: inline-block;
 }
 
+#sign-up {
+	margin-bottom: -30px;
+}
 
-/////////////////////////////
-////////// catchPhrase //////
-/////////////////////////////
 .welcome-info {
-	padding-bottom: 10px;
+	padding-bottom: -10px;
 }
 
 .info-text {
@@ -84,6 +90,7 @@
 
 #more-info {
 	padding-top: 20px;
+	// margin-top: 20px;
 }
 .parent {
     display: table;
@@ -97,7 +104,8 @@
 }
 
 #how-to {
-	padding-top: 25px;
+	// padding-top: 25px;
+	margin-top: 40px;
 	font: 'Source Sans Pro', sans-serif;
 	font-weight: 200;
 }
