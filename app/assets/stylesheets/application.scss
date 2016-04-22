@@ -105,12 +105,30 @@ background-color: #ffffff;  //Sets background hover color on navbar
 #center-nav {
 	width: 100%;
 	text-align: center;
+	padding-top: 5px;
 	> li {
 		float: none;
 		display: inline-block;
+		color: black;
+		font-size: 16pt;
 	}
 }
 
+#center-nav > li a {
+	color: #212121;
+	border-width: 5px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+}
+
+
+#center-nav > li a:hover {
+	color: #ff4056;
+	border-width: 5px;
+	border-bottom-width:5px;
+	border-bottom-color:#ff4056;
+	border-bottom-style: solid;
+}
 /////////////////////////////////////
 ////////// main collapsed nav //////////
 ////////////////////////////////////
