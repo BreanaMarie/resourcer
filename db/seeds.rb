@@ -55,6 +55,8 @@ require 'ffaker'
     new_message = Message.new
     new_message.title = FFaker::Movie.title
     new_message.body = FFaker::Lorem.paragraph
+    new_message.joburl = FFaker::Internet.http_url
+    new_message.role = FFaker::Company.position
 
     new_message.friendship_id = rand(1..20)
     new_message.save
