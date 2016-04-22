@@ -8,14 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Refer Me</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
-        <li><a href="/profiles/new">Create Profile</a></li>
+        <li><a href="/messages/">Messages</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -31,14 +30,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %> 
-            <% @user = current_user %> 
-            <li><a href="/profiles/<%=@user.profile.id%>"><%= "Welcome #{@user.profile.firstname}" %></a></li>
-            <li><%= link_to "Log out", logout_path, method: :delete %></li>
-        <% else %> 
-          <li><%= link_to "Log in", new_session_path, method: :get %></li>
-          <li><%= link_to "Sign Up", new_user_path, method: :get %></li>
-        <% end %> 
+          
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
