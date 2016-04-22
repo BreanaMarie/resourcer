@@ -20,7 +20,7 @@
         <div class="col-xs-12 center">
           <!-- Button trigger sign up modal -->
           <% if logged_in? %>
-          <button>you are loged in</button>
+          <a class="btn btn-primary" href="/dashboard/">Go to Dashboard</a>
           <% else %>
           <button data-toggle="modal" data-target="#createUser" id="sign-up">Sign-Up</button>
           <% end %>
