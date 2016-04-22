@@ -13,11 +13,12 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro|Roboto:300,400|Courgette);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Lobster);
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }
+
 /////////////////////////////////////
 ////////// navigation bar //////////
 ////////////////////////////////////
@@ -33,7 +34,7 @@ nav {
 }
 
 .navbar-brand {
-font-family: 'Courgette', cursive;
+font-family: 'Lobster', cursive;
 font-size: 20pt;
 }
 
