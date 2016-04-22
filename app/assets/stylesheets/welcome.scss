@@ -7,11 +7,14 @@
 }
 
 .jumbotron h1 {
-	margin-top: 13%;
-	padding-left: 1%;
-	padding-right: 1%;
+	margin-top: 10%;
+	margin-bottom: 5%;
+	padding: 0px 10px 10px 10px;
 	text-align: center;
 	font-weight: bolder;
+	position: relative;
+	top: 20px;
+	bottom: 10px;
 }
 
 /* Portrait */
@@ -21,7 +24,7 @@
 		background-size: cover;
 	  width: 100%;
 		color: white;
-		height: 30vh;
+		height: 50vh;
 	}
 }
 /* Landscape */
@@ -30,22 +33,82 @@
 		background-image: image-url("banner2.jpg");
 	  width: 100%;
 		color: white;
-		height: 40vh;
+		height: 50vh;
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
 }
 
-#catchPhrase {
-	text-align: left;
-}
+
+/////////////////////////////
+////////// welcome //////
+/////////////////////////////
+// #welcome {
+// 	text-align: left;
+// 	padding-bottom: -10px;
+//
+// }
+//
 
 #outline {
 	box-shadow: 1px 1px 1px #9E9E9E;
 	border:0.1em solid #EEEEEE;
+	padding-bottom: -100px;
+	display: inline-block;
 }
 
+#sign-up {
+	margin-bottom: -30px;
+}
 
+.welcome-info {
+	padding-bottom: -10px;
+}
+
+.info-text {
+	padding: 0px 10px 10px 10px;
+	font: 'Source Sans Pro', sans-serif;
+	font-weight: bolder;
+}
+
+.welcome-icon {
+	padding-top: 10px
+}
+
+.middle-line {
+	border-right: 1px solid #ff4056;
+	margin: 15px 0px 25px 0px;
+}
+
+.middle-adjust {
+	margin: 15px 0px 25px 0px;
+}
+
+/////////////////////////////
+////////// more-info //////
+///////////////////////////
+
+#more-info {
+	padding-top: 20px;
+	// margin-top: 20px;
+}
+.parent {
+    display: table;
+    table-layout: fixed;
+}
+
+.child {
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+
+#how-to {
+	// padding-top: 25px;
+	margin-top: 40px;
+	font: 'Source Sans Pro', sans-serif;
+	font-weight: 200;
+}
 /////////////////////////////
 ////////// buttons /////////
 /////////////////////////////

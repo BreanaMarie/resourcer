@@ -13,11 +13,12 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro|Roboto:300,400|Courgette);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Lobster);
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }
+
 /////////////////////////////////////
 ////////// navigation bar //////////
 ////////////////////////////////////
@@ -29,19 +30,21 @@ nav {
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border: 0;
+	border-radius: 0;
 }
 
 .navbar-brand {
-font-family: 'Courgette', cursive;
+font-family: 'Lobster', cursive;
 font-size: 20pt;
 }
 
-.navbar-default .navbar-brand {
+
+.navbar-header .navbar-brand {
 	color: #ffffff;
 }
 
-.navbar-default .navbar-brand a:hover {
-color: #ffffff;
+.navbar-header .navbar-brand:hover {
+	color: #ffffff;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -64,12 +67,38 @@ background-color: #ffffff;  //Sets background hover color on navbar
   color: #ffffff; //Change active text color
 }
 
+/////////////////////////////////////
+////////// collapsed nav //////////
+////////////////////////////////////
+.navbar-toggle {
+	border: none;
+	box-shadow: none;
+	background-color: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+#hamburger:hover {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+#hamburger:focus {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+
 ////////////////////////////////////
 ////////// main page view //////////
 ////////////////////////////////////
 section{
 	padding-bottom: 5%;
-	min-height: 85vh;
+	min-height: 100vh;
 	margin-left: 0;
 	margin-right: 0;
 	padding-left: 0;

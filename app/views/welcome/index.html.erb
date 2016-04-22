@@ -1,23 +1,48 @@
 <section>
   <div class="jumbotron">
-    <h1>Your Source for qualified canidates</h1>
+    <h1>Your source for qualified candidates</h1>
   </div>
-  <div id="catchPhrase" class="container">
-    <div id="outline"
+  <div id="welcome" class="container">
+    <div id="outline">
       <div class="row">
-        <div class="col-xs-6">
-          <h2>Find Someone to Refer</h2>
-          <p>Have a simple informational interview over lunch and refer qualified candidates. Grow your network, build relationships, create greate teams, &#38; get referral bonues.</p>
+        <div class="col-xs-6 middle-line center">
+          <img class="welcome-icon" src="<%= asset_path( 'sourcer-icon.png' ) %>" alt="Sourcer icon" width="72px" height="74px"/>
+          <h2 class="welcome-info">Find Someone to Refer</h2>
+          <p class="info-text" align="justify">Have a simple informational interview over lunch and refer qualified candidates. Grow your network, build relationships, create great teams, &#38; get referral bonuses.</p>
         </div>
-        <div class="col-xs-6">
-          <h2>Get a Referral</h2>
-          <p>Getting a phone screen or interview without knowing someone at a company can be a duanting task. Referrals are the proven way to make sure your application is reviewed.</p>
+        <div class="col-xs-6 middle-adjust center">
+          <img class="welcome-icon" src="<%= asset_path( 'candidate-icon2.png' ) %>" alt="Candidate icon" width="72px" height="74px"/>
+          <h2 class="welcome-info">Get a Referral</h2>
+          <p class="info-text" align="justify">Getting a phone screen or interview without knowing someone at a company can be a duanting task. Referrals are the proven way to make sure your application is reviewed.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 center">
-          <button><%= link_to "Sign-up", new_user_path %></button>
+          <button id="sign-up"><%= link_to "Sign-up", new_user_path %></button>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="more-info" class="container parent">
+    <div class="row">
+      <div class="col-xs-12 center">
+        <h2 id="how-to" class="center">How it Works</h2>
+      </div>
+    <div class="row">
+      <div class="col-sm-4 center child">
+        <img class="welcome-icon" src="<%= asset_path( 'red-setting2.png' ) %>" alt="Settings icon" width="100px" height="100px"/>
+        <h2 class="welcome-info">Filter Results</h2>
+        <p class="info-text" align="left">Filter by location, company, name, role, and department to get the best matches.</p>
+      </div>
+      <div class="col-sm-4 center">
+        <img class="welcome-icon" src="<%= asset_path( 'red-calendar2.png' ) %>" alt="Calendar icon" width="100px" height="100px"/>
+        <h2 class="welcome-info">Request a Meeting</h2>
+        <p class="info-text" align="left">Request a meeting with one click. If they agree, you'll set a time to meet.</p>
+      </div>
+      <div class="col-sm-4 center">
+        <img class="welcome-icon" src="<%= asset_path( 'red-users.png' ) %>" alt="Users icon" width="100px" height="100px"/>
+        <h2 class="welcome-info">Grow Your Network</h2>
+        <p class="info-text" align="left">Make new connections, build your network, grow relationships, and build great teams.</p>
       </div>
     </div>
   </div>
