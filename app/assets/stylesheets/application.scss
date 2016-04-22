@@ -135,3 +135,40 @@ section{
 .right {
 	text-align: right;
 }
+
+////////////////////////////
+////////// red buttons /////
+////////////////////////////
+
+button {
+	font-size: 20px;
+	margin: auto;
+	text-align: center;
+	border-radius: 6px;
+	box-shadow: 1px 1px 1px #9E9E9E;
+	border:0.1em solid #ff4056;
+	background-color: #ff4056;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-weight: 300;
+  color: #ffffff;
+
+}
+
+button:hover {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+  color: #ff4056;
+
+}
+
+button:active {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+}

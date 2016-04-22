@@ -1,3 +1,29 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+text-decoration: none;
+color: #212121;
+font-weight: bolder;
+}
+
+h1 {
+  padding-bottom: 20px;
+}
+
+.actions {
+  padding: 15px 5px 0px 5px;
+}
+
+.actions a {
+text-decoration: none;
+color: #ffffff;
+font-weight: bolder;
+}
+
+.actions a:hover {
+text-decoration: none;
+color: #ff4056;
+font-weight: bolder;
+}

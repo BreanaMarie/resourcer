@@ -1,20 +1,19 @@
-<p>Find me in app/views/sessions/new.html.erb</p>
-<p>Change redirect to dashboard upon login - currently routes to welcome page</p>
-
 <section>
-  <div class="container">
+  <div class="container center">
     <h1>Login</h1>
     <%= form_tag sessions_path, method: :post do %>
       <div class="field">
-        <%= label_tag :email %>
-        <%= text_field_tag :email %>
+        <%= text_field_tag :email, nil, placeholder: 'e-mail' %>
       </div></br>
       <div class="field">
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
+        <%= password_field_tag :password, nil, placeholder: 'password' %>
       </div></br>
+      <div>
+        <a class="sign-up"><%= link_to "Sign-up", new_user_path %></a>
+      </div>
       <div class="actions">
-        <%= submit_tag "Log In" %>
+        <%= button_tag link_to "Cancel", root_path %>
+        <%= button_tag "Log In", :class => 'submit-button'%>
       </div>
     <% end %></br>
   </div>
