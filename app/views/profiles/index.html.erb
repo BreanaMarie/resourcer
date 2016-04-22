@@ -1,27 +1,60 @@
 <section>
   <div class="container">
-      <h1>All Profiles</h1>
-      <table class="table thumbnail" width:"100%">
-        <% @profiles.each do |profile| %>
+    <div class="row">
+      <div class="col-xs-4">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Sourcer City </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Sourcer Role</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+      <div class="col-xs-8">
+        <table class="table thumbnail" width:"100%">
           <tr>
-            <td>
-              <%= link_to profile_path(profile) do%>
-              <img src="<%=profile.image %>">
-              <% end %>
-            </td>
-            <td>
-              <%= link_to profile_path(profile) do%>
-              <%=profile.firstname%>
-              <% end %> 
-            </td>
-            <td>
-              <%= link_to profile_path(profile) do%>
-              <%=profile.city%>
-              <% end %>
-            </td>
-          </tr >
-        <%end%>
-      </table>
+            <th></th>
+            <th>Sourcer Name</th>
+            <th>City</th>
+            <th>Role</th>
+          </tr>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td>
+                <%= link_to profile_path(profile) do%>
+                <img src="<%=profile.image %>">
+                <% end %>
+              </td>
+              <td>
+                <%= link_to profile_path(profile) do%>
+                <%=profile.firstname%>
+                <% end %> 
+              </td>
+              <td>
+                <%= link_to profile_path(profile) do%>
+                <%=profile.city%>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to profile_path(profile) do%>
+                <%=profile.role%>
+                <% end %>
+              </td>
+            </tr >
+          <%end%>
+        </table>
+        
+      </div>
+      
+    </div>
 
     
   </div>
