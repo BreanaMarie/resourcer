@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       login(@user)
       create_profile @current_user.id
       add_default_image @user.profile
-      redirect_to @user.profile
+      redirect_to dashboard_index_path
     else
       render "new"
     end
