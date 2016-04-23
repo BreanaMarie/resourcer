@@ -53,8 +53,18 @@
     <!-- this loop finds where the user is part of a friendship that has been confirmed -->
       <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
 
+      
+      <% p "friendship" %>
+      <% p friendship %>
+
+      <!-- print out friendship ids. Save them in array. Do message query for loop iterating over id array Message.where('user_id=?', friendship.id)
+
       <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
-        <% for message in Message.where(friendship_id: @friendship) %>
+        <% for message in Message.where(friendship_id: friendship) %>
+        <% print friendship %>
+
+        <% p "testing" %>
+        <% p message %>
           <div class="col-xs-3 center">
             <%= image_tag message.user.profile.image %> 
             <%= button_to "View Profile", profile_path(message.user.profile), class:"btn btn-primary", method: :get %>
