@@ -1,16 +1,15 @@
 class ProfilesController < ApplicationController
   include ProfilesHelper
+
   helper_method :sort_column, :sort_direction
 
   def index
-    @profiles = Profile.search(params[:search])
+   
     if params[:search]
       @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
-      @profiles = Profile.all.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
+      @profiles = Profile.all.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     end
-
-    render :index
    
   end
 
