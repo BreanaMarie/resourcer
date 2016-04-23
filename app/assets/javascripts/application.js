@@ -19,11 +19,11 @@
 
 
 $(function() {
-  $("#profiless th a, #profiles .pagination a").live("click", function() {
+  $("#profiles th a, #profiles .pagination a").on("click", function() {
     $.getScript(this.href);
     return false;
   });
-  $("#profiles_search input").keyup(function() {
+  $("#profiles_search input").on(function() {
     $.get($("#profiles_search").attr("action"), $("#profiles_search").serialize(), null, "script");
     return false;
   });
