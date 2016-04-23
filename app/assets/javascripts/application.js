@@ -16,3 +16,15 @@
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require_tree .
+
+
+$(function() {
+  $("#profiless th a, #profiles .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#profiles_search input").keyup(function() {
+    $.get($("#prrofiles_search").attr("action"), $("#profiles_search").serialize(), null, "script");
+    return false;
+  });
+});

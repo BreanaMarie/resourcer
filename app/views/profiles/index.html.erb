@@ -2,6 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-4">
+      <%= form_tag profiles_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+     
+      <% end %>
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Sourcer City </label>
@@ -19,14 +26,25 @@
         </form>
       </div>
       <div class="col-xs-8">
-        <table class="table thumbnail" width:"100%">
+ 
+
+<!--       <% for profile in @profiles %>
+        <li>
+          <%= link_to profile.full_name, profile_path(profile) %>
+          <%= link_to profile.city, profile_path(profile) %>
+          <%= link_to profile.full_name, profile_path(profile) %>
+
+        </li>
+      <% end %> -->
+<table class="table thumbnail" width:"100%">
           <tr>
             <th></th>
-            <th>Sourcer Name</th>
-            <th>City</th>
-            <th>Role</th>
+            <th><%= sortable 'full_name' %></th>
+            <th><%= sortable 'city' %></th>
+            <th><%= sortable 'roll' %></th>
           </tr>
           <% @profiles.each do |profile| %>
+          <% puts profile %>
             <tr>
               <td>
                 <%= link_to profile_path(profile) do%>

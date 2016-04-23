@@ -1,8 +1,14 @@
 class ProfilesController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   include ProfilesHelper
   def index
+    @profiles = Profile.search(params[:search])
+    # @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+
+
     @profiles = Profile.all
-    render :index
+   
   end
 
   def show
@@ -44,4 +50,13 @@ class ProfilesController < ApplicationController
     redirect_to "/"
   end
 
+  private
+  
+  def sort_column
+    Profile.column_names.include?(params[:sort]) ? params[:sort] : "full_name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end

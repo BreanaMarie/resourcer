@@ -32,6 +32,8 @@ gem 'bootstrap-material-design'
 gem 'ffaker'
 gem 'jquery-turbolinks'
 
+gem 'will_paginate', "~> 3.0.4"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
