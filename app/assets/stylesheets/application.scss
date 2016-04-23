@@ -13,8 +13,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Lobster);
-
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Lobster);
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -111,6 +110,7 @@ background-color: #ffffff;  //Sets background hover color on navbar
 		display: inline-block;
 		color: black;
 		font-size: 16pt;
+		padding: 5px 25px 0px 25px;;
 	}
 }
 
@@ -119,6 +119,7 @@ background-color: #ffffff;  //Sets background hover color on navbar
 	border-width: 5px;
 	border-bottom-color: #ffffff;
 	border-bottom-style: solid;
+	font-weight: 300;
 }
 
 
@@ -128,9 +129,10 @@ background-color: #ffffff;  //Sets background hover color on navbar
 	border-bottom-width:5px;
 	border-bottom-color:#ff4056;
 	border-bottom-style: solid;
+	font-weight: 400;
 }
 /////////////////////////////////////
-////////// main collapsed nav //////////
+////////// main collapsed nav //////
 ////////////////////////////////////
 .navbar-toggle {
 	border: none;
