@@ -6,7 +6,10 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @user = User.find(session[:user_id])
+    @profile = @user.profile
+
+    # @profile = Profile.find(params[:id])
     @current_user = current_user
     @friendships = Friendship.all
     @profiles = Profile.all
@@ -27,7 +30,10 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @user = User.find(session[:user_id])
+    @profile = @user.profile
+
+    # @profile = Profile.find(params[:id])
     render :edit
   end
 
