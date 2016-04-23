@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-4">
-      <%= form_tag profiles_path, :method => 'get' do %>
+      <%= form_tag profiles_path, :method => 'get', :id => "profiles_search" do %>
+        <%= hidden_field_tag :direction, params[:direction] %>
+        <%= hidden_field_tag :sort, params[:sort] %>
+        <%= @profiles.paginate(:page => 1, :per_page => 2 ) %>
         <p>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :name => nil %>
@@ -26,25 +29,15 @@
         </form>
       </div>
       <div class="col-xs-8">
- 
-
-<!--       <% for profile in @profiles %>
-        <li>
-          <%= link_to profile.full_name, profile_path(profile) %>
-          <%= link_to profile.city, profile_path(profile) %>
-          <%= link_to profile.full_name, profile_path(profile) %>
-
-        </li>
-      <% end %> -->
-<table class="table thumbnail" width:"100%">
+        <table class="table thumbnail" width:"100%">
           <tr>
             <th></th>
-            <th><%= sortable 'full_name' %></th>
+            <th><%= sortable 'firstname' %></th>
+            <th><%= sortable 'lastname' %></th>
             <th><%= sortable 'city' %></th>
-            <th><%= sortable 'roll' %></th>
+            <th><%= sortable 'role' %></th>
           </tr>
-          <% @profiles.each do |profile| %>
-          <% puts profile %>
+          <% for profile in @profiles %>
             <tr>
               <td>
                 <%= link_to profile_path(profile) do%>
@@ -54,6 +47,11 @@
               <td>
                 <%= link_to profile_path(profile) do%>
                 <%=profile.firstname%>
+                <% end %> 
+              </td>
+              <td>
+                <%= link_to profile_path(profile) do%>
+                <%=profile.lastname%>
                 <% end %> 
               </td>
               <td>
@@ -69,6 +67,7 @@
             </tr >
           <%end%>
         </table>
+        <%= will_paginate @profiles %>
         
       </div>
       

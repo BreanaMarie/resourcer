@@ -9,9 +9,9 @@ class Profile < ActiveRecord::Base
 
   def self.search(search)
     if search
-      self.where("full_name LIKE ?", "%#{search}%")
+      where('city LIKE ?', "%#{search}%")
     else
-      self.all
+      all
     end
   end
 end

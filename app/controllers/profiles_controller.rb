@@ -3,11 +3,11 @@ class ProfilesController < ApplicationController
 
   include ProfilesHelper
   def index
-    @profiles = Profile.search(params[:search])
-    # @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    # @profiles = Profile.search(params[:search])
+    @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 
 
-    @profiles = Profile.all
+    # @profiles = Profile.all
    
   end
 
@@ -53,7 +53,7 @@ class ProfilesController < ApplicationController
   private
   
   def sort_column
-    Profile.column_names.include?(params[:sort]) ? params[:sort] : "full_name"
+    Profile.column_names.include?(params[:sort]) ? params[:sort] : "city"
   end
   
   def sort_direction
