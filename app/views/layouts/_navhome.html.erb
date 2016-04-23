@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <% @user = current_user %>
-          <li><a href="/dashboard/"><%= "Welcome #{@user.profile.firstname}" %></a></li>
+          <!-- <li><a href="/dashboard/"><%= "Welcome #{@user.profile.firstname}" %></a></li> -->
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
       <% else %>
         <li ><%= link_to "Login", "#", data: {toggle: "modal", target: "#logUser"} %></li>

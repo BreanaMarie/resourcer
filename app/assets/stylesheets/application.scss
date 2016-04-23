@@ -13,14 +13,13 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Lobster);
-
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Lobster);
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
 /////////////////////////////////////
-////////// navigation bar //////////
+////////// navigation bars //////////
 ////////////////////////////////////
 nav {
 	z-index: 900;
@@ -91,6 +90,72 @@ background-color: #ffffff;  //Sets background hover color on navbar
 	box-shadow: none;
 	background-color: transparent;
 }
+
+
+
+/////////////////////////////////////
+////////// main nav bar ////////////
+////////////////////////////////////
+.main-nav {
+	background-color: #ffffff;
+	text-align: center;
+}
+
+#center-nav {
+	width: 100%;
+	text-align: center;
+	padding-top: 5px;
+	> li {
+		float: none;
+		display: inline-block;
+		color: black;
+		font-size: 16pt;
+		padding: 5px 25px 0px 25px;;
+	}
+}
+
+#center-nav > li a {
+	color: #212121;
+	border-width: 5px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+	font-weight: 300;
+}
+
+
+#center-nav > li a:hover {
+	color: #ff4056;
+	border-width: 5px;
+	border-bottom-width:5px;
+	border-bottom-color:#ff4056;
+	border-bottom-style: solid;
+	font-weight: 400;
+}
+/////////////////////////////////////
+////////// main collapsed nav //////
+////////////////////////////////////
+.navbar-toggle {
+	border: none;
+	box-shadow: none;
+	background-color: none;
+}
+
+#main-toggle {
+	background-color: #ff4056;
+}
+
+#hamburger:hover {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+#hamburger:focus {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
 
 
 ////////////////////////////////////
