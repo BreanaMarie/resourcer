@@ -7,7 +7,7 @@
         <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
 
           <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
-          <% for message in Message.where(friendship_id: @friendship) %>
+          <% for message in Message.where(friendship_id: friendship.id) %>
               <div class="row">
                 <% if (message.blank?)%>
                 <h2>you have no messages</h2>
@@ -21,6 +21,7 @@
                 <div class="col-xs-7"><a href="#" onclick="toggle_visibility('message<%=message.id %>');">
                   <h3><%= message.author %></h3>
                   <h4><%= message.title %></h4>
+
                 </div></a>
               </div>
             <% end %>
@@ -29,10 +30,11 @@
 
       <div class="col-xs-7">
         <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
-          <% for message in Message.where(friendship_id: @friendship) %>
-              <div id="message<%=message.id %>" class="row">
+          <% for message in Message.where(friendship_id: friendship.id) %>
+              <div id="message<%=message.id %>" class="row" style="display: none;">
                 <p><%= message.created %></p>
                 <p><%= message.body %></p>
+                <p><%= message.friendship.id %></p>
               </div>
           <% end %>
         <% end %>
@@ -44,7 +46,7 @@
 <script type="">
   function toggle_visibility(id) {
      var e = document.getElementById(id);
-     if(e.style.display == 'block')
+     if(e.style.display == 'block' || e.style.display === '')
         e.style.display = 'none';
      else
         e.style.display = 'block';

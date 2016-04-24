@@ -1,8 +1,16 @@
 class ProfilesController < ApplicationController
   include ProfilesHelper
+
+  helper_method :sort_column, :sort_direction
+
   def index
-    @profiles = Profile.all
-    render :index
+   
+    if params[:search]
+      @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    else
+      @profiles = Profile.all.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    end
+   
   end
 
   def show
@@ -23,7 +31,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    profile_params = params.require(:profile).permit(:user_id, :firstname, :lastname, :role, :city, :state, :linkedin, :image, :bio)
+    profile_params = params.require(:profile).permit(:user_id, :firstname, :lastname, :role, :city, :state, :linkedin, :image, :bio, :seeker)
     @profile = Profile.create(profile_params)
     add_default_image @profile
     render :new
@@ -39,7 +47,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    updated_attributes = params.require(:profile).permit(:user_id, :firstname, :lastname, :role, :city, :state, :linkedin, :image, :bio)
+    updated_attributes = params.require(:profile).permit(:user_id, :firstname, :lastname, :role, :city, :state, :linkedin, :image, :bio, :seeker)
     @profile.update_attributes(updated_attributes)
     add_default_image @profile
     redirect_to @profile
@@ -50,4 +58,13 @@ class ProfilesController < ApplicationController
     redirect_to "/"
   end
 
+  private
+  
+  def sort_column
+    Profile.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end

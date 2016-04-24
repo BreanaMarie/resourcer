@@ -1,57 +1,80 @@
-<section>
-  <div class="container">
-    <div class="row">
-      <div id="profileside" class="col-xs-4">
-        <div id="profileimage">
-          <%= image_tag @profile.image %>
+<!-- condition showing of profile -->
+<% if current_user.profile.seeker == 'candidate' %>
+  <!-- if profile belongs to a candidate,  -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div id="profileside" class="col-xs-4">
+          <div id="profileimage">
+            <%= image_tag @profile.image %>
+          </div>
+          <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p>
+          <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+          <!-- Show request friendship if on another users page otherwise show edit profile button -->
+          <% if session[:user_id] != @profile.user.id %>
+            <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn" %>
+          <!-- TODO if user is already friends alert already friends  -->
+
+          <!-- if user is not firends offer creation of friendship -->
+          <%else%>
+           <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %> 
+              
+          <%end%>
+
+          
         </div>
-        <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p>
-        <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-        <!-- Show request friendship if on another users page otherwise show edit profile button -->
-        <% if session[:user_id] != @profile.user.id %>
-          <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn" %>
-        <!-- TODO if user is already friends alert already friends  -->
-
-        <!-- if user is not firends offer creation of friendship -->
-        <%else%>
-         <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %> 
-            
+        <div class="col-xs-8">
+          <% if @profile.full_name.blank? %>
+          <h2>Please Update Your Dashboard</h2>
+          <%else%>
+          <%= "#{@profile.full_name}"%>
+          <%end%>
+          <p><%=@profile.bio%></p>
+          
+        </div>
+        <hr>
+      </div>
+      <div class="well row">
+        <h1>Employment History</h1>
+        <% @profile.employments.each do |e| %>
+        <div class="col-xs-3">
+          <%= link_to employment_path(e) do%>
+          <%=e.industry %><br>
+          <%=e.title%>
+          <% end %> 
+        </div>
+        <div class="col-xs-3">
+          <%= link_to employment_path(e) do%>
+          <%=e.city%>, <%= e.state %>
+          <% end %>  
+        </div>
+        <div class="col-xs-6">
+          <%= link_to employment_path(e) do%>
+          <%=e.summary%>
+          <% end %>  
+        </div>
         <%end%>
-
         
       </div>
-      <div class="col-xs-8">
-        <% if @profile.full_name.blank? %>
-        <h2>Please Update Your Dashboard</h2>
-        <%else%>
-        <%= "#{@profile.full_name}"%>
-        <%end%>
-        <p><%=@profile.bio%></p>
-        
-      </div>
-      <hr>
     </div>
-    <div class="well row">
-      <h1>Employment History</h1>
-      <% @profile.employments.each do |e| %>
-      <div class="col-xs-3">
-        <%= link_to employment_path(e) do%>
-        <%=e.industry %><br>
-        <%=e.title%>
-        <% end %> 
-      </div>
-      <div class="col-xs-3">
-        <%= link_to employment_path(e) do%>
-        <%=e.city%>, <%= e.state %>
-        <% end %>  
-      </div>
-      <div class="col-xs-6">
-        <%= link_to employment_path(e) do%>
-        <%=e.summary%>
-        <% end %>  
-      </div>
-      <%end%>
+  </section>
+<% elsif current_user.profile.seeker == 'sourcer' %>
+  <!-- if profile belongs to a sourcer,  -->
+  <section>
+    <div class="container">
       
     </div>
-  </div>
-</section>
+    
+  </section>
+<% else %>
+<!-- if profile belongs to someone who hasn't filled this section out, don't display content,  -->
+  <section>
+    <div class="container">
+    <!-- if profile belongs to the current user and has not filled out the seeker field, they see this message -->
+      <% if current_user.id = @profile.user.id %>
+      <h1>You need to pick if you are a sourcer or a candidate </h1>
+      <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), class:"btn btn-primary", method: :get %> 
+      <% end %>
+    </div>
+  </section>
+<% end %>
