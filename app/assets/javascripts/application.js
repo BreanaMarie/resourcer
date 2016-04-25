@@ -33,3 +33,9 @@ $(function() {
 $('.btn-primary').click(function() {
   $(this).toggleClass('active');
 });
+
+
+// attach class "active" on click to remove default Bootstrap active button styling
+$('.btn-danger').click(function() {
+  $(this).toggleClass('active');
+});

@@ -342,3 +342,81 @@ button:active {
 	outline: none;
 	color: #ff4056;
 }
+
+
+////////////////////////////////
+////////// danger buttons ////
+///////////////////////////////
+
+.btn-danger {
+	font-size: 20px;
+	margin: auto;
+	text-align: center;
+	border-radius: 6px;
+	border:0.1em solid #ff4056;
+	background-color: #ffffff;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-weight: 300;
+  color: #ff4056;
+}
+
+.btn-danger:hover {
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+  color: #ffffff;
+
+}
+
+.btn-danger:active {
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+	color: #ffffff;
+}
+
+
+.btn-danger:focus {
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+	color: #ffffff;
+}
+
+.btn-danger.active {
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+	color: #ffffff;
+}
+
+.btn-danger:active:focus {
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+  color: #ffffff;
+}
+
+.btn-danger.active:focus{
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+  color: #ffffff;
+}
+
+.btn-danger:active:focus{
+	background-color: #ff4056;
+	border-color: #ff4056;
+	border:0.1em solid #ffffff;
+	box-shadow: none;
+  color: #ffffff;
+}
