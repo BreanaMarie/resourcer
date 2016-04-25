@@ -1,25 +1,13 @@
 <!-- Show this view if profile is set to candidate -->
 <% if current_user.profile.seeker == 'candidate' %>
-  <h1>Welcome Candidate</h1>
   <section>
     <div class="jumbotron">
-      <div class="find">
+      <h1>Welcome Candidate</h1>
+      <!-- <div class="find">
         <button class="btn btn-primary"><a href="/profiles/">All Profiles</a></button>
-      </div>
+      </div> -->
     </div>
     <div class="container ">
-      <div class="row profile">
-        <div class="col-xs-4">
-          <%= image_tag @current_user.profile.image %>    
-        </div>
-        <div class="col-xs-8">
-          <h2><%= "#{@current_user.profile.full_name}"  %></h2>
-          <h3><%= @current_user.profile.role %> </h3>
-          <p> <%= @current_user.profile.bio %> </p>
-          <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), class:"btn btn-primary", method: :get %> 
-        </div> 
-      </div>
-
       <h1>Notifications</h1>
       <hr>
       <h2>Pending Requests</h2>
@@ -27,13 +15,13 @@
       <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
       <div class="row notifications">
           <div class="col-xs-3 center">
-            <%= image_tag friendship.user.profile.image %> 
+            <%= image_tag friendship.user.profile.image %>
             <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
           </div>
           <div class="col-xs-7">
             <h3><%=friendship.user.profile.full_name %> requested a meeting</h3>
           <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
-            <p>Body of message</p> 
+            <p>Body of message</p>
             <p><%=friendship.user.profile.role %></p>
           <!-- show only if provided -->
             <p>Job URL</p>
@@ -46,7 +34,7 @@
           </div>
         </div>
       <% end %>
-   
+
 
       <!-- *** TODO for loop where friendship status is confirmed show messages recieved -->
       <h2>Messages</h2>
@@ -54,11 +42,11 @@
       <!-- this loop finds where the user is part of a friendship that has been confirmed -->
         <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
 
-        
+
         <% p "friendship" %>
         <% p friendship %>
 
-        <!-- print out friendship ids. Save them in array. Do message query for loop iterating over id array Message.where('user_id=?', friendship.id)
+        <!-- print out friendship ids. Save them in array. Do message query for loop iterating over id array Message.where('user_id=?', friendship.id) -->
 
         <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
           <% for message in Message.where(friendship_id: friendship) %>
@@ -67,14 +55,14 @@
           <% p "testing" %>
           <% p message %>
             <div class="col-xs-3 center">
-              <%= image_tag message.user.profile.image %> 
+              <%= image_tag message.user.profile.image %>
               <%= button_to "View Profile", profile_path(message.user.profile), class:"btn btn-primary", method: :get %>
             </div>
             <div class="col-xs-7">
               <h3><%= message.author %> sent you a message</h3>
               <h4><%= message.title %></h4>
         <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
-              <p><%= message.body %></p> 
+              <p><%= message.body %></p>
               <p>Desired role: </p>
         <!-- show only if provided -->
               <p>Job URL</p>
@@ -91,10 +79,10 @@
       <hr>
 
       <div class="row notifications">
-      
+
         <!-- *** TODO for loop where friendship status is established show all messages newest on top -->
         <div class="col-xs-3">
-          <%= image_tag "profiledefault" %> 
+          <%= image_tag "profiledefault" %>
         </div>
         <div class="col-xs-7">
           <h2>Full Name</h2> <p>Show Title</p>
@@ -104,13 +92,15 @@
           <button class="btn btn-primary">See Message</button>
         </div>
       </div>
-      
+
     </div>
   </section>
 <% elsif current_user.profile.seeker == 'sourcer' %>
 <!-- show this view if profile is set to sourcer -->
-  <h1>Welcome Sourcer</h1>
   <section>
+    <div class="jumbotron">
+      <h1>Welcome Sourcer</h1>
+    </div>
     <div class="container">
       <h1>Notifications</h1>
       <hr>
@@ -119,13 +109,13 @@
       <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
       <div class="row notifications">
           <div class="col-xs-3 center">
-            <%= image_tag friendship.user.profile.image %> 
+            <%= image_tag friendship.user.profile.image %>
             <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
           </div>
           <div class="col-xs-7">
             <h3><%=friendship.user.profile.full_name %> requested a meeting</h3>
       <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
-            <p>Body of message</p> 
+            <p>Body of message</p>
             <p>Desired role: </p>
       <!-- show only if provided -->
             <p>Job URL</p>
@@ -144,6 +134,14 @@
   </section>
 <% else %>
 <!-- show this view if they have not picked sourcer or candidate -->
-  <h1>You need to pick if you are a sourcer or a candidate </h1>
-  <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), class:"btn btn-primary", method: :get %> 
+  <div class="row">
+    <div class="col-xs-12 center">
+      <section>
+          <div class="pending-seeker-status">
+        <h1>To continue, please update your profile and select whether you are a sourcer or candidate.</h1>
+        <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), id:"edit-profile", class:"btn btn-primary", method: :get %>
+          </div>
+      </section>
+    </div>
+  </div>
 <%end%>
