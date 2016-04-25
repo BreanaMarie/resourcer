@@ -189,7 +189,7 @@
             <!-- <p>Desired role: </p> -->
       <!-- show only if provided -->
             <p>Job URL</p>
-            <p>Sent at: <%= message.created %></p>
+            <p class="timestamps"><%= time_ago_in_words (friendship.created_at) %> ago</p>
           </div>
         <div class="col-xs-2">
         <!-- this should bechanged to a response resource -->
