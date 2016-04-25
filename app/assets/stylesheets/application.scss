@@ -222,13 +222,10 @@ section{
 }
 
 
-
-
-
-
 ////////////////////////////
 ////////// red buttons /////
 ////////////////////////////
+// Refactor associated html to btn-primary
 
 button {
 	font-size: 20px;
@@ -297,4 +294,50 @@ button:active {
 	border-color: #ff4056;
 	border:0.1em solid #ff4056;
 	box-shadow: none;
+}
+
+
+.btn-primary:focus {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary.active {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary:active:focus {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary.active:focus{
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary:active:focus{
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
 }
