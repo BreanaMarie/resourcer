@@ -13,7 +13,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Lobster);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300italic|Kaushan+Script);
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -33,7 +34,7 @@ nav {
 }
 
 .navbar-brand {
-font-family: 'Lobster', cursive;
+font-family: 'Kaushan Script', cursive;
 font-size: 20pt;
 }
 
