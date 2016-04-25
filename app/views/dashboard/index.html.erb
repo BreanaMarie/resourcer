@@ -110,7 +110,7 @@
       <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
       <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
       <div class="row notifications">
-          <div class="col-xs-3 center">
+          <div class="col-xs-3 center" id="avatar">
             <%= image_tag friendship.user.profile.image %>
             <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
           </div>
