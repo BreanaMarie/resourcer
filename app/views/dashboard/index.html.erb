@@ -18,7 +18,7 @@
 
 <!-- MODIFY HERE!!!!!!!!!!!!!!!! -->
           <div class="col-xs-3 center" id="avatar">
-            <%= link_to profile_path(friendship.user.profile) do %>
+            <%= link_to searched_path(friendship.user.profile) do %>
               <%= image_tag friendship.user.profile.image %>
             <% end %>
           </div>
@@ -127,7 +127,7 @@
         <!-- MODIFY HERE!!!!!!!!!!!!!!!! -->
 
         <div class="col-xs-3 center" id="avatar">
-          <%= link_to profile_path(friendship.user.profile) do %>
+          <%= link_to searched_path(friendship.user.profile) do %>
             <%= image_tag friendship.user.profile.image %>
           <% end %>
         </div>
