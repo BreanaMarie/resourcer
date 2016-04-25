@@ -1,0 +1,2 @@
+module SearchedHelper
+end
