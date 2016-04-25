@@ -19,4 +19,5 @@ responses.css
 users.css
 welcome.css
 sessions.css
+searched.css
 )

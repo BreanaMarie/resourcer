@@ -6,12 +6,12 @@
         <%= form_tag profiles_path, :method => 'get', :id => "profiles_search" do %>
           <%= hidden_field_tag :direction, params[:direction] %>
           <%= hidden_field_tag :sort, params[:sort] %>
-          
+
           <p>
             <%= text_field_tag :search, params[:search], placeholder: "Search Profiles", class: "form-group" %>
           </p>
           <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-       
+
         <% end %>
       </div>
       <div class="col-xs-8">
@@ -29,27 +29,27 @@
                 <% for profile in @profiles.where(seeker: "sourcer") %>
                   <tr>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <img src="<%=profile.image %>">
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.firstname%>
-                      <% end %> 
+                      <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.lastname%>
-                      <% end %> 
+                      <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.city%>
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.role%>
                       <% end %>
                     </td>
@@ -59,27 +59,27 @@
                 <% for profile in @profiles.where(seeker: "candidate") %>
                   <tr>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <img src="<%=profile.image %>">
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.firstname%>
-                      <% end %> 
+                      <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.lastname%>
-                      <% end %> 
+                      <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.city%>
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to profile_path(profile) do%>
+                      <%= link_to searched_path(profile) do%>
                       <%=profile.role%>
                       <% end %>
                     </td>
@@ -87,11 +87,11 @@
                 <%end%>
               <% end %>
             </table>
-            <%= will_paginate @profiles %>   
+            <%= will_paginate @profiles %>
       </div>
-      
+
     </div>
 
-    
+
   </div>
 </section>
