@@ -15,10 +15,20 @@
       <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
       <div class="row notifications">
 
+
+<!-- MODIFY HERE!!!!!!!!!!!!!!!! -->
           <div class="col-xs-3 center" id="avatar">
-            <%= image_tag friendship.user.profile.image %>
-            <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
+            <%= link_to profile_path(friendship.user.profile) do %>
+              <%= image_tag friendship.user.profile.image %>
+            <% end %>
           </div>
+
+
+
+
+
+
+
 
           <div class="col-xs-7">
             <h3><%=friendship.user.profile.full_name %> would like to connect</h3>
@@ -110,10 +120,25 @@
       <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
       <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
       <div class="row notifications">
-          <div class="col-xs-3 center" id="avatar">
+
+
+
+
+        <!-- MODIFY HERE!!!!!!!!!!!!!!!! -->
+
+        <div class="col-xs-3 center" id="avatar">
+          <%= link_to profile_path(friendship.user.profile) do %>
             <%= image_tag friendship.user.profile.image %>
-            <%= button_to "View Profile", profile_path(friendship.user.profile), class:"btn btn-primary", method: :get %>
-          </div>
+          <% end %>
+        </div>
+
+
+
+
+
+
+
+
           <div class="col-xs-7">
             <h3><%=friendship.user.profile.full_name %> requested a meeting</h3>
       <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
