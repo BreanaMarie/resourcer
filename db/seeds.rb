@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-require 'ffaker' 
+require 'ffaker'
 
-20.times do 
+20.times do
 
   # create the user params
   user_params = Hash.new
@@ -51,9 +51,10 @@ require 'ffaker'
     end
   end
 
-  5.times do 
+  5.times do
     new_message = Message.new
     new_message.title = FFaker::Movie.title
+    new_message.author = FFaker::Name.first_name
     new_message.body = FFaker::Lorem.paragraph
     new_message.joburl = FFaker::Internet.http_url
     new_message.role = FFaker::Company.position
@@ -72,4 +73,3 @@ require 'ffaker'
     new_user.friendships.push new_friendship
   end
 end
-
