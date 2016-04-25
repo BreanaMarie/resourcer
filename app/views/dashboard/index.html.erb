@@ -27,16 +27,14 @@
           <!-- show only if provided -->
             <!-- <p>Job URL</p> -->
           </div>
-          <div class="col-xs-2">
-            <%= button_to "Accept Request", friendship, :class =>"btn btn-primary", :method => :put %>
+          <div class="col-xs-2 friendship-btn">
+            <%= button_to "Accept Request", friendship, :class =>"btn btn-primary center-block", :method => :put %>
            <br>
-            <%= button_to "Decline Request", friendship, :class =>"btn btn-danger", :method => :delete %>
+            <%= button_to "Decline Request", friendship, :class =>"btn btn-danger center-block", :method => :delete %>
           </div>
         </div>
       <% end %>
       <!-- *** TODO for loop where friendship status is confirmed show messages recieved -->
-      <h2>Messages</h2>
-      <div class="row notifications">
       <!-- this loop finds where the user is part of a friendship that has been confirmed -->
         <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
         <% p "friendship" %>
@@ -44,35 +42,34 @@
         <!-- print out friendship ids. Save them in array. Do message query for loop iterating over id array Message.where('user_id=?', friendship.id) -->
         <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
           <% for message in Message.where(friendship_id: friendship) %>
+          <div class="container messages">
+          <div class="row notifications">
           <% print friendship %>
           <% p "testing" %>
           <% p message %>
-            <div class="col-xs-3 center">
+            <div class="col-xs-3" id="avatar">
               <%= image_tag message.user.profile.image %>
-              <%= button_to "View Profile", profile_path(message.user.profile), class:"btn btn-primary", method: :get %>
+              <!-- <%= button_to "View Profile", profile_path(message.user.profile), class:"btn btn-primary", method: :get %> -->
             </div>
             <div class="col-xs-7">
               <h3><%= message.author %> sent you a message</h3>
               <h4><%= message.title %></h4>
         <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
               <p><%= message.body %></p>
-              <p>Desired role: </p>
         <!-- show only if provided -->
-              <p>Job URL</p>
-              <p>Sent at: <%= message.created %></p>
+              <p class="timestamps"><%= time_ago_in_words (friendship.created_at) %> ago</p>
             </div>
-          <div class="col-xs-2">
+          <div class="col-xs-2 friendship-btn">
           <!-- this should bechanged to a response resource -->
-            <%= button_to "Respond", new_message_path, :class =>"btn btn-primary", :method => :put %>
+            <%= button_to "Respond", new_message_path, :class =>"btn btn-primary center-block", :method => :put %>
           </div>
         </div>
       </div>
       <% end %>
       <% end %>
-      <hr>
-      <div class="row notifications">
+      <!-- <div class="row notifications"> -->
         <!-- *** TODO for loop where friendship status is established show all messages newest on top -->
-        <div class="col-xs-3">
+        <!-- <div class="col-xs-3">
           <%= image_tag "profiledefault" %>
         </div>
         <div class="col-xs-7">
@@ -82,42 +79,91 @@
         <div class="col-xs-2">
           <button class="btn btn-primary">See Message</button>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 <% elsif current_user.profile.seeker == 'sourcer' %>
 <!-- show this view if profile is set to sourcer -->
-  <section>
-    <div class="jumbotron">
-      <h1>Welcome Sourcer</h1>
-    </div>
-    <div class="container">
-      <h1>Notifications</h1>
-      <hr>
-      <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
-      <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
-      <div class="row notifications">
+<section>
+  <div class="jumbotron">
+    <h1>Welcome Sourcer</h1>
+  </div>
+  <div class="container ">
+    <h1>Notifications</h1>
+    <hr>
+    <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
+    <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
+    <div class="row notifications">
         <div class="col-xs-3 center" id="avatar">
           <%= link_to searched_path(friendship.user.profile) do %>
             <%= image_tag friendship.user.profile.image %>
           <% end %>
         </div>
-          <div class="col-xs-7">
-            <h3><%=friendship.user.profile.full_name %> would like to connect</h3>
-            <p class="timestamps"><%= time_ago_in_words (friendship.created_at) %> ago</p>
-      <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
-      <!-- show only if provided -->
-          </div>
-          <div class="col-xs-2">
-            <%= button_to "Accept Request", friendship, :class =>"btn btn-primary", :method => :put %>
-           <br>
-            <%= button_to "Decline Request", friendship, :class =>"btn btn-danger", :method => :delete %>
-          </div>
+        <div class="col-xs-7">
+          <h3><%=friendship.user.profile.full_name %> would like to connect</h3>
+          <p class="timestamps"><%= time_ago_in_words (friendship.created_at) %> ago</p>
+        <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
+          <!-- <p>Body of message</p> -->
+          <p><%=friendship.user.profile.role %></p>
+        <!-- show only if provided -->
+          <!-- <p>Job URL</p> -->
         </div>
-      <% end %>
+        <div class="col-xs-2 friendship-btn">
+          <%= button_to "Accept Request", friendship, :class =>"btn btn-primary center-block", :method => :put %>
+         <br>
+          <%= button_to "Decline Request", friendship, :class =>"btn btn-danger center-block", :method => :delete %>
+        </div>
+      </div>
+    <% end %>
+    <!-- *** TODO for loop where friendship status is confirmed show messages recieved -->
+    <!-- this loop finds where the user is part of a friendship that has been confirmed -->
+      <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
+      <% p "friendship" %>
+      <% p friendship %>
+      <!-- print out friendship ids. Save them in array. Do message query for loop iterating over id array Message.where('user_id=?', friendship.id) -->
+      <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
+        <% for message in Message.where(friendship_id: friendship) %>
+        <div class="container messages">
+        <div class="row notifications">
+        <% print friendship %>
+        <% p "testing" %>
+        <% p message %>
+          <div class="col-xs-3" id="avatar">
+            <%= image_tag message.user.profile.image %>
+            <!-- <%= button_to "View Profile", profile_path(message.user.profile), class:"btn btn-primary", method: :get %> -->
+          </div>
+          <div class="col-xs-7">
+            <h3><%= message.author %> sent you a message</h3>
+            <h4><%= message.title %></h4>
+      <!-- *** TODO limit body to 4 lines of text with accordion to see more -->
+            <p><%= message.body %></p>
+      <!-- show only if provided -->
+            <p>Job URL</p>
+            <p class="timestamps"><%= time_ago_in_words (friendship.created_at) %> ago</p>
+          </div>
+        <div class="col-xs-2 friendship-btn">
+        <!-- this should bechanged to a response resource -->
+          <%= button_to "Respond", new_message_path, :class =>"btn btn-primary center-block", :method => :put %>
+        </div>
       </div>
     </div>
-  </section>
+    <% end %>
+    <% end %>
+    <!-- <div class="row notifications"> -->
+      <!-- *** TODO for loop where friendship status is established show all messages newest on top -->
+      <!-- <div class="col-xs-3">
+        <%= image_tag "profiledefault" %>
+      </div>
+      <div class="col-xs-7">
+        <h2>Full Name</h2> <p>Show Title</p>
+        <p>time since date created field</p>
+      </div>
+      <div class="col-xs-2">
+        <button class="btn btn-primary">See Message</button>
+      </div>
+    </div> -->
+  </div>
+</section>
 <% else %>
 <!-- show this view if they have not picked sourcer or candidate -->
   <div class="row">
