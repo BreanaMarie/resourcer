@@ -1,8 +1,3 @@
-<h1>Searched#show</h1>
-<p>Find me in app/views/searched/show.html.erb</p>
-
-<h1>Searched#show</h1>
-<p>Find me in app/views/searched/show.html.erb</p>
 
 <!-- condition showing of profile -->
   <!-- if profile belongs to a candidate,  -->
@@ -19,14 +14,10 @@
           <% if session[:user_id] != @profile.user.id %>
             <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn" %>
           <!-- TODO if user is already friends alert already friends  -->
-
           <!-- if user is not firends offer creation of friendship -->
           <%else%>
            <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %>
-
           <%end%>
-
-
         </div>
         <div class="col-xs-8">
           <% if @profile.full_name.blank? %>
@@ -35,7 +26,6 @@
           <%= "#{@profile.full_name}"%>
           <%end%>
           <p><%=@profile.bio%></p>
-
         </div>
         <hr>
       </div>
@@ -59,30 +49,6 @@
           <% end %>
         </div>
         <%end%>
-
       </div>
-    </div>
-  </section>
-  <!-- if profile belongs to a sourcer,  -->
-  <section>
-    <div class="container">
-
-    </div>
-
-  </section>
-<% else %>
-<!-- if profile belongs to someone who hasn't filled this section out, don't display content,  -->
-  <section>
-    <!-- if profile belongs to the current user and has not filled out the seeker field, they see this message -->
-      <% if current_user.id = @profile.user.id %>
-     <div class="row">
-       <div class="col-xs-12 center">
-         <section>
-            <div class="pending-seeker-status">
-               <h1>To continue, please update your profile and select whether you are a sourcer or candidate.</h1>
-               <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), id:"edit-profile", class:"btn btn-primary", method: :get %>
-            </div>
-         </section>
-      <% end %>
     </div>
   </section>
