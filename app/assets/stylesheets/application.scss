@@ -201,9 +201,31 @@ section{
 	text-align: right;
 }
 
+
+
+/////////////////////////////////////////////
+////////// seeker status pending views /////
+////////////////////////////////////////////
+
+.pending-seeker-status {
+	box-shadow: 1px 1px 1px #9E9E9E;
+	border:0.1em solid #EEEEEE;
+	padding-bottom: -100px;
+	display: inline-block;
+	width: 80%;
+	margin-top: 10%;
+}
+
+// edit profile button positioning
+#edit-profile {
+	margin: 25px 0px -30px 0px;
+}
+
+
 ////////////////////////////
 ////////// red buttons /////
 ////////////////////////////
+// Refactor associated html to btn-primary
 
 button {
 	font-size: 20px;
@@ -236,4 +258,86 @@ button:active {
 	border-color: #ff4056;
 	border:0.1em solid #ff4056;
 	box-shadow: none;
+}
+
+////////////////////////////////
+////////// primary buttons ////
+///////////////////////////////
+
+.btn-primary {
+	font-size: 20px;
+	margin: auto;
+	text-align: center;
+	border-radius: 6px;
+	box-shadow: 1px 1px 1px #9E9E9E;
+	border:0.1em solid #ff4056;
+	background-color: #ff4056;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-weight: 300;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+  color: #ff4056;
+
+}
+
+.btn-primary:active {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+}
+
+
+.btn-primary:focus {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary.active {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary:active:focus {
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary.active:focus{
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
+}
+
+.btn-primary:active:focus{
+	background-color: #ffffff;
+	border-color: #ff4056;
+	border:0.1em solid #ff4056;
+	box-shadow: none;
+	outline: none;
+	color: #ff4056;
 }

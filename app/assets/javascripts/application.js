@@ -28,3 +28,8 @@ $(function() {
     return false;
   });
 });
+
+// attach class "active" on click to remove default Bootstrap active button styling
+$('.btn-primary').click(function() {
+  $(this).toggleClass('active');
+});
