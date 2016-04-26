@@ -105,7 +105,7 @@ background-color: #ffffff;  //Sets background hover color on navbar
 ////////// main nav bar //////////////
 /////////////////////////////////////
 .main-nav {
-	background-color: #ffffff;
+	background-color: #F5F5F5;
 	text-align: center;
 }
 
@@ -125,14 +125,14 @@ background-color: #ffffff;  //Sets background hover color on navbar
 #center-nav > li a {
 	color: #212121;
 	border-width: 5px;
-	border-bottom-color: #ffffff;
+	border-bottom-color: #F5F5F5;
 	border-bottom-style: solid;
 	font-weight: 300;
 }
 
-
 #center-nav > li a:hover {
 	color: #ff4056;
+	background-color: #F5F5F5;
 	border-width: 5px;
 	border-bottom-width:5px;
 	border-bottom-color:#ff4056;
