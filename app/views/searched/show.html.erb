@@ -4,32 +4,71 @@
   <section>
     <div class="container">
       <div class="row">
-        <div id="profileside" class="col-xs-4">
-          <div id="profileimage">
-            <%= image_tag @profile.image %>
-          </div>
-          <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p>
-          <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+
+
+
+        <div id="profileside" class="col-xs-4 center profile-image">
+            <%= image_tag @profile.image, class:"profile-image" %>
+          <!-- <p><%= "#{@profile.firstname} #{@profile.lastname}"  %></p> -->
+          <!-- <p><%= "Joined on #{@profile.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p> -->
           <!-- Show request friendship if on another users page otherwise show edit profile button -->
-          <% if session[:user_id] != @profile.user.id %>
-            <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn" %>
+          <!-- <% if session[:user_id] != @profile.user.id %>
+            <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn" %> -->
           <!-- TODO if user is already friends alert already friends  -->
           <!-- if user is not firends offer creation of friendship -->
-          <%else%>
+          <!-- <%else%>
            <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %>
-          <%end%>
+          <%end%> -->
         </div>
-        <div class="col-xs-8">
+
+
+
+
+
+
+        <div class="col-xs-6 left name-title">
           <% if @profile.full_name.blank? %>
           <h2>Please Update Your Dashboard</h2>
           <%else%>
-          <%= "#{@profile.full_name}"%>
+          <h3 class="name"><%= "#{@profile.full_name}"%></h3>
+          <h3 class="title"><%= "#{@profile.role}" %></h3>
           <%end%>
+        </div>
+      <!-- </div> -->  <!-- end row -->
+
+
+
+      <div class="col-xs-2 center add-friend">
+        <% if session[:user_id] != @profile.user.id %>
+          <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
+
+
+
+        <!-- TODO if user is already friends alert already friends  -->
+        <!-- if user is not firends offer creation of friendship -->
+        <%else%>
+         <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-default", method: :get %>
+        <%end%>
+      </div>
+    </div><!-- end row -->
+
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Bio</h3>
           <p><%=@profile.bio%></p>
         </div>
-        <hr>
-      </div>
-      <div class="well row">
+      </div><!-- end row -->
+
+
+
+      <div class="row">
         <h1>Employment History</h1>
         <% @profile.employments.each do |e| %>
         <div class="col-xs-3">

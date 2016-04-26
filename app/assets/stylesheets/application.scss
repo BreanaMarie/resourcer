@@ -419,6 +419,12 @@ button:active {
   color: #ffffff;
 }
 
+
+
+////////////////////////////////////
+////////// add friend buttons /////
+//////////////////////////////////
+
 /////////////////////////////////////////////
 ////////// dashboard & message styles //////
 ///////////////////////////////////////////
@@ -431,4 +437,38 @@ button:active {
 .timestamps {
 	color: #9E9E9E;
 	font-size: 20pt;
+}
+
+/////////////////////////////////////////////
+////////// profile & search results ////////
+///////////////////////////////////////////
+.profile-image {
+	border-radius: 100%;
+	width: 150px;
+	height: 150px;
+	// padding: 2%;
+}
+
+.name {
+	font-weight: bold;
+	color: #424242;
+	margin: 50px 0px 3px 0px;
+}
+
+.title {
+	color: #9E9E9E;
+	margin: 0 auto;
+}
+
+.add-friend {
+	// padding: 10% 0% 0% 0%;
+	max-width: 180px;
+	// padding-top: 70px;
+	padding: 60px 0px 0px 0px;
+
+}
+
+.name-title {
+	// padding: 2% 5% 0% 8%;
+	padding: 0% 0% 0% 2%;
 }
