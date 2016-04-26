@@ -20,8 +20,12 @@ body {
 }
 
 h3 {
-	font-size: 22pt;
+	font-size: 20pt;
 	font-weight: bolder;
+}
+
+h4 {
+font-size: 16pt;
 }
 
 /////////////////////////////////////
@@ -101,7 +105,7 @@ background-color: #ffffff;  //Sets background hover color on navbar
 ////////// main nav bar //////////////
 /////////////////////////////////////
 .main-nav {
-	background-color: #ffffff;
+	background-color: #F5F5F5;
 	text-align: center;
 }
 
@@ -121,14 +125,14 @@ background-color: #ffffff;  //Sets background hover color on navbar
 #center-nav > li a {
 	color: #212121;
 	border-width: 5px;
-	border-bottom-color: #ffffff;
+	border-bottom-color: #F5F5F5;
 	border-bottom-style: solid;
 	font-weight: 300;
 }
 
-
 #center-nav > li a:hover {
 	color: #ff4056;
+	background-color: #F5F5F5;
 	border-width: 5px;
 	border-bottom-width:5px;
 	border-bottom-color:#ff4056;
@@ -419,6 +423,12 @@ button:active {
   color: #ffffff;
 }
 
+
+
+////////////////////////////////////
+////////// add friend buttons /////
+//////////////////////////////////
+
 /////////////////////////////////////////////
 ////////// dashboard & message styles //////
 ///////////////////////////////////////////
@@ -431,4 +441,73 @@ button:active {
 .timestamps {
 	color: #9E9E9E;
 	font-size: 20pt;
+}
+
+/////////////////////////////////////////////
+////////// profile & search results ////////
+///////////////////////////////////////////
+.compress {
+padding-left: 225px;
+padding-right: 225px;
+}
+
+.profile-image {
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+	padding-top: 5%;
+	padding-bottom: 2%;
+}
+
+.name {
+	font-weight: bold;
+	color: #424242;
+	margin: 50px 0px 3px 0px;
+}
+
+.title {
+	color: #9E9E9E;
+	margin: 0 auto;
+}
+
+.add-friend {
+	max-width: 180px;
+	padding: 60px 0px 0px 0px;
+}
+
+.name-title {
+	padding: 0% 0% 0% 3%;
+}
+
+.glyphicon-map-marker {
+	color: #ff4056;
+}
+
+.location {
+	color: #ff4056;
+	padding-top: 15px;
+	padding-left: 15px;
+	font-size: 20pt;
+}
+
+.employments {
+	text-decoration: none;
+	border-width: 5px;
+	border-top-width:1px;
+	border-top-color:#E0E0E0;
+	border-top-style: solid;
+	padding: 10px 0px 10px 0px;
+}
+
+.industry {
+	font-size: 12pt;
+	padding-left: 5px;
+}
+
+.indent {
+	margin-left: 15px;
+}
+
+#location-history {
+	color: #212121;
 }
