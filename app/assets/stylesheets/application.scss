@@ -20,8 +20,12 @@ body {
 }
 
 h3 {
-	font-size: 22pt;
+	font-size: 20pt;
 	font-weight: bolder;
+}
+
+h4 {
+font-size: 16pt;
 }
 
 /////////////////////////////////////
@@ -444,9 +448,9 @@ button:active {
 ///////////////////////////////////////////
 .profile-image {
 	border-radius: 100%;
-	width: 150px;
-	height: 150px;
-	// padding: 2%;
+	width: 100px;
+	height: 100px;
+	padding-top: 2%;
 }
 
 .name {
@@ -471,4 +475,17 @@ button:active {
 .name-title {
 	// padding: 2% 5% 0% 8%;
 	padding: 0% 0% 0% 2%;
+}
+
+
+.glyphicon-map-marker {
+	color: #ff4056;
+	// background-color: red;
+}
+
+.location {
+	color: #ff4056;
+	padding-top: 10px;
+	padding-left: 15px;
+	font-size: 20pt;
 }
