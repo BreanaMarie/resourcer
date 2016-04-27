@@ -9,7 +9,7 @@
         </div>
         <div class="col-xs-6 left name-title">
           <% if @profile.full_name.blank? %>
-          <h2>Please Update Your Dashboard</h2>
+          <h2>Please update name</h2>
           <%else%>
           <h3 class="name"><%= "#{@profile.full_name}"%></h3>
           <h3 class="title"><%= "#{@profile.role}" %></h3>
@@ -83,7 +83,7 @@
         </div>
         <div class="col-xs-6 left name-title">
           <% if @profile.full_name.blank? %>
-          <h2>Please Update Your Dashboard</h2>
+          <h2>Please update name</h2>
           <%else%>
           <h3 class="name"><%= "#{@profile.full_name}"%></h3>
           <h3 class="title"><%= "#{@profile.role}" %></h3>
@@ -157,10 +157,11 @@
          <section>
             <div class="pending-seeker-status">
                <h1>To continue, please update your profile and select whether you are a sourcer or candidate.</h1>
-               <%= button_to "Edit Profile", edit_profile_path(@current_user.profile), id:"edit-profile", class:"btn btn-primary", method: :get %>
+               <%= button_to "Update Profile", edit_profile_path(@current_user.profile), id:"edit-profile", class:"btn btn-primary", method: :get %>
             </div>
          </section>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </section>
 <% end %>

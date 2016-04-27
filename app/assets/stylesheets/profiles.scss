@@ -30,3 +30,41 @@
   background-image: url(/images/down_arrow.png);
   background-size: cover;
 }
+
+
+
+// form
+.label {
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+#edit-image {
+	padding: 0px;
+}
+
+.seeker-new {
+	margin: 50px 200px 0px 200px;
+}
+
+.seeker{
+// margin: 20px 100px 0px 100px;
+margin-top: 20px;
+}
+
+.add-seeker-status {
+	margin-top: 30px;
+}
+
+.push-down {
+	margin-top: 20px;
+}
+
+.basic {
+	margin-top: 10px;
+	font-size: 20pt;
+}
+
+.question {
+	color: #ff4056;
+}

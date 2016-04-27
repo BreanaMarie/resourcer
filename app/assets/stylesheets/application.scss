@@ -423,11 +423,88 @@ button:active {
   color: #ffffff;
 }
 
+/////////////////////////////////
+////////// cancel buttons /////
+///////////////////////////////
+
+.btn-cancel {
+	font-size: 20px;
+	margin: auto;
+	text-align: center;
+	border-radius: 6px;
+	box-shadow: 1px 1px 1px #9E9E9E;
+	border:0.1em solid #BDBDBD;
+	background-color: #BDBDBD;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-weight: 300;
+  color: #ffffff;
+}
+
+.btn-cancel:hover {
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+  color: #BDBDBD;
+
+}
+
+.btn-cancel:active {
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+}
 
 
-////////////////////////////////////
-////////// add friend buttons /////
-//////////////////////////////////
+.btn-cancel:focus {
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+	outline: none;
+	color: #BDBDBD;
+}
+
+.btn-cancel.active {
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+	outline: none;
+	color: #BDBDBD;
+}
+
+.btn-cancel:active:focus {
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+	outline: none;
+	color: #BDBDBD;
+}
+
+.btn-cancel.active:focus{
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+	outline: none;
+	color: #BDBDBD;
+}
+
+.btn-cancel:active:focus{
+	background-color: #ffffff;
+	border-color: #BDBDBD;
+	border:0.1em solid #BDBDBD;
+	box-shadow: none;
+	outline: none;
+	color: #BDBDBD;
+}
+
 
 /////////////////////////////////////////////
 ////////// dashboard & message styles //////

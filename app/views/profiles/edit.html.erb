@@ -1,42 +1,210 @@
+<!-- if current user is a candidate -->
+<% if current_user.profile.seeker == 'candidate' %>
+<section>
+  <div class="container compress">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="center">Edit Candidate Profile</h1>
+      </div>
+    </div>
+    <div class="row push-down">
+      <div class="col-xs-4 center">
+          <% if current_user.profile.seeker == 'candidate' ||  current_user.profile.seeker == 'sourcer'%>
+          <%= image_tag @profile.image, class:"profile-image", id:"edit-image" %>
+          <%else%>
+          <img class="welcome-icon" src="<%= asset_path( 'placeholder-user-photo.png' ) %>" alt="Users icon" width="100px" height="100px"/>
+          <h6>Please update your profile image.</h6>
+          <%end%>
+          <%= form_for @profile do |p| %>
+          <%= p.label "Image url" %>
+          <%= p.text_field :image, placeholder: "Find a picture you like, right click and hit copy image url", class:'form-control'%>
+          <br>
+      </div>
+      <div class="col-xs-8 center seeker">
+        <h4><%= p.label "Status" %></h4>
+        <p>Candidate     <%= p.radio_button :seeker, "candidate", :value => "candidate" %></p>
+        <p>Sourcer     <%= p.radio_button :seeker, "sourcer", :value => "sourcer" %>
+        <br></p>
+    </div><!-- end row -->
+  </div>
+  <div class="row"> <!-- start remaining form fields -->
+      <div class="col-xs-4">
+        <%= p.label "First name" %>
+        <%= p.text_field :firstname, placeholder: "First Name", class:'form-control', autofocus: true %>
+        <br>
+      </div>
+      <div class="col-xs-4">
+        <%= p.label "Last name" %>
+        <%= p.text_field :lastname, placeholder: "Last Name", class:'form-control' %>
+        <br>
+      </div>
+      <div class="col-xs-4">
+        <%= p.label "Linkedin" %>
+        <%= p.text_field :linkedin, placeholder: "url to your linked in profile", class:'form-control' %>
+        <br>
+      </div>
+  </div><!-- end row -->
+  <div class="row"> <!-- start remaining form fields -->
+    <div class="col-xs-4">
+        <%= p.label "Desired role" %>
+        <%= p.text_field :role, placeholder: "Your Role desired/job title", class:'form-control'%>
+        <br>
+    </div>
+    <div class="col-xs-4">
+        <%= p.label "City" %>
+        <%= p.text_field :city, placeholder: "City", class:'form-control'%>
+        <br>
+    </div>
+    <div class="col-xs-4">
+        <%= p.label "State" %>
+        <%= p.text_field :state, placeholder: "State", class:'form-control' %>
+        <br>
+      </div>
+    </div><!-- end row -->
+  <div class="row">
+    <div class="col-xs-12">
+        <%= p.label "Bio" %>
+        <%= p.text_area :bio, placeholder: "Short Bio about yourself", class:'form-control' %>
+        <br>
+    </div>
+  </div>
+  <div class="row rig">
+    <div class="col-xs-6 left">
+      <%= link_to "Cancel", profile_path, class: 'btn btn-cancel' %>
+    </div>
+    <div class="col-xs-6 right">
+      <%= p.submit "Update", class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+  </div>
+</section>
+
+<!-- if current user is a sourcer -->
+<% elsif current_user.profile.seeker == 'sourcer' %>
+<section>
+  <div class="container compress">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="center">Edit Sourcer Profile</h1>
+      </div>
+    </div>
+    <div class="row push-down">
+      <div class="col-xs-4 center">
+          <% if current_user.profile.seeker == 'candidate' ||  current_user.profile.seeker == 'sourcer'%>
+          <%= image_tag @profile.image, class:"profile-image", id:"edit-image" %>
+          <%else%>
+          <img class="welcome-icon" src="<%= asset_path( 'placeholder-user-photo.png' ) %>" alt="Users icon" width="100px" height="100px"/>
+          <h6>Please update your profile image.</h6>
+          <%end%>
+          <%= form_for @profile do |p| %>
+          <%= p.label "Image url" %>
+          <%= p.text_field :image, placeholder: "Find a picture you like, right click and hit copy image url", class:'form-control'%>
+          <br>
+      </div>
+      <div class="col-xs-8 center seeker">
+        <h4><%= p.label "Status" %></h4>
+        <p>Candidate     <%= p.radio_button :seeker, "candidate", :value => "candidate" %></p>
+        <p>Sourcer     <%= p.radio_button :seeker, "sourcer", :value => "sourcer" %>
+        <br></p>
+    </div><!-- end row -->
+  </div>
+  <div class="row"> <!-- start remaining form fields -->
+      <div class="col-xs-4">
+        <%= p.label "First name" %>
+        <%= p.text_field :firstname, placeholder: "First Name", class:'form-control', autofocus: true %>
+        <br>
+      </div>
+      <div class="col-xs-4">
+        <%= p.label "Last name" %>
+        <%= p.text_field :lastname, placeholder: "Last Name", class:'form-control' %>
+        <br>
+      </div>
+      <div class="col-xs-4">
+        <%= p.label "Linkedin" %>
+        <%= p.text_field :linkedin, placeholder: "url to your linked in profile", class:'form-control' %>
+        <br>
+      </div>
+  </div><!-- end row -->
+  <div class="row"> <!-- start remaining form fields -->
+    <div class="col-xs-4">
+        <%= p.label "Current role" %>
+        <%= p.text_field :role, placeholder: "Your Role desired/job title", class:'form-control'%>
+        <br>
+    </div>
+    <div class="col-xs-4">
+        <%= p.label "City" %>
+        <%= p.text_field :city, placeholder: "City", class:'form-control'%>
+        <br>
+    </div>
+    <div class="col-xs-4">
+        <%= p.label "State" %>
+        <%= p.text_field :state, placeholder: "State", class:'form-control' %>
+        <br>
+      </div>
+    </div><!-- end row -->
+  <div class="row">
+    <div class="col-xs-12">
+        <%= p.label "Bio" %>
+        <%= p.text_area :bio, placeholder: "This should describe the ideal candidate", class:'form-control' %>
+        <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 left">
+      <%= link_to "Cancel", profile_path, class: 'btn btn-cancel' %>
+    </div>
+    <div class="col-xs-6 right">
+      <%= p.submit "Update", class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+  </div>
+</section>
+
+<!-- if current user has not identified as a sourcer or candidate -->
+<% else %>
 <section>
   <div class="container">
-    <div class="col-xs-8 col-xs-offset-2">
-      <h1>Edit your profile</h1>
-      <%= form_for @profile do |p| %>
-        <%= p.label "what type of seeker are you?" %> 
-        <p>Candidate<%= p.radio_button :seeker, "candidate", :value => "candidate" %></p>
-        <p>Sourcer<%= p.radio_button :seeker, "sourcer", :value => "sourcer" %>
-        <br></p>
-        <%= p.label :firstname %> 
-        <%= p.text_field :firstname, placeholder: "First Name", class:'form-control', autofocus: true %> 
-        <br>
-        <%= p.label :lastname %> 
-        <%= p.text_field :lastname, placeholder: "Last Name", class:'form-control' %> 
-        <br> 
-        <%= p.label :role %>
-        <%= p.text_field :role, placeholder: "Your Role desired/job title", class:'form-control'%> 
-        <br> 
-        <%= p.label :city %>
-        <%= p.text_field :city, placeholder: "City", class:'form-control'%> 
-        <br> 
-        <%= p.label :state %> 
-        <%= p.text_field :state, placeholder: "State", class:'form-control' %> 
-        <br> 
-        <%= p.label :linkedin %> 
-        <%= p.text_field :linkedin, placeholder: "url to your linked in profile", class:'form-control' %> 
-        <br> 
-        <%= p.label :bio %> 
-        <%= p.text_area :bio, placeholder: "Short Bio about yourself", class:'form-control' %> 
-        <br> 
-        <%= p.label :image %>
-        <%= p.text_field :image, placeholder: "Find a picture you like, right click and hit copy image url", class:'form-control'%> 
-        <br> 
-        <div class="text-right">
-          <%= p.submit "Update Profile", class: 'btn btn-primary' %> 
-        </div>
-        <% end %>
-      
+    <div class="row">
+      <div class="col-xs-12"></div>
+      <h1 class="center seeker-new">Seeker Status &#38; Basic Info</h1>
     </div>
-    
-  </div>  
+    <div class="row seeker-new">
+      <div class="col-xs-6">
+        <%= form_for @profile do |p| %>
+        <h3 class="question"><%= p.label "what type of seeker are you?" %></h3>
+        <h3>Candidate  <%= p.radio_button :seeker, "candidate", :value => "candidate" %></h3>
+        <h3>Sourcer   <%= p.radio_button :seeker, "sourcer", :value => "sourcer" %></h3>
+        <br></p>
+      </div><!-- end row -->
+      <div class="col-xs-6"> <!-- start remaining form fields -->
+        <div class="text-right">
+          <%= p.submit "Add to Profile", class: 'btn btn-danger add-seeker-status' %>
+        </div>
+      </div>
+    </div>
+    <div class="row seeker-new basic">
+      <div class="col-xs-6">
+        <%= p.label "First name" %>
+        <%= p.text_field :firstname, placeholder: "First Name", :required => true, class:'form-control', autofocus: true %>
+      </div><!-- end row -->
+      <div class="col-xs-6"> <!-- start remaining form fields -->
+        <%= p.label "Last name" %>
+        <%= p.text_field :lastname, placeholder: "Last Name", :required => true, class:'form-control' %>
+      </div>
+    </div>
+    <div class="row seeker-new basic">
+      <div class="col-xs-6">
+        <%= p.label "City" %>
+        <%= p.text_field :city, placeholder: "City", :required => true, class:'form-control'%>
+      </div><!-- end row -->
+      <div class="col-xs-6"> <!-- start remaining form fields -->
+        <%= p.label "State" %>
+        <%= p.text_field :state, placeholder: "State", :required => true, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+<% end %>
 </section>
+<% end %>
