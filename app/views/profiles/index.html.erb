@@ -24,6 +24,7 @@
                 <th><%= sortable 'lastname' %></th>
                 <th><%= sortable 'city' %></th>
                 <th><%= sortable 'role' %></th>
+                <th><%= sortable 'comapny' %></th>
               </tr>
               <% if current_user.profile.seeker == 'candidate' %>
                 <% for profile in @profiles.where(seeker: "sourcer") %>
@@ -51,6 +52,11 @@
                     <td>
                       <%= link_to searched_path(profile) do%>
                       <%=profile.role%>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to searched_path(profile) do%>
+                      <%=profile.company%>
                       <% end %>
                     </td>
                   </tr >
@@ -81,6 +87,11 @@
                     <td>
                       <%= link_to searched_path(profile) do%>
                       <%=profile.role%>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to searched_path(profile) do%>
+                      <%=profile.company%>
                       <% end %>
                     </td>
                   </tr >

@@ -121,33 +121,49 @@
         <br>
       </div>
       <div class="col-xs-4">
-        <%= p.label "Linkedin" %>
-        <%= p.text_field :linkedin, placeholder: "url to your linked in profile", class:'form-control' %>
-        <br>
+          <%= p.label "City" %>
+          <%= p.text_field :city, placeholder: "City", class:'form-control'%>
+          <br>
       </div>
   </div><!-- end row -->
   <div class="row"> <!-- start remaining form fields -->
-    <div class="col-xs-4">
-        <%= p.label "Current role" %>
-        <%= p.text_field :role, placeholder: "Your Role desired/job title", class:'form-control'%>
-        <br>
-    </div>
-    <div class="col-xs-4">
-        <%= p.label "City" %>
-        <%= p.text_field :city, placeholder: "City", class:'form-control'%>
-        <br>
+    <div class="col-xs-8">
+      <%= p.label "Current Job Title" %>
+      <%= p.text_field :role, placeholder: "Your Current Job Title", class:'form-control'%>
+      <br>
     </div>
     <div class="col-xs-4">
         <%= p.label "State" %>
         <%= p.text_field :state, placeholder: "State", class:'form-control' %>
         <br>
-      </div>
-    </div><!-- end row -->
+    </div>
+  </div><!-- end row -->
+
+  <div class="row"> 
+    <div class="col-xs-8">
+      <%= p.label "Current Company" %>
+      <%= p.text_field :company, placeholder: "The Name of your Current Employer", class:'form-control'%>
+      <br>
+    </div>
+    <div class="col-xs-4">
+        <%= p.label "Department" %>
+        <%= p.select :department, ['Sales', 'HR/Talent', 'Acquisition', 'Engineering/Development', 'Operations', 'Product Design', 'Marketing', 'Finance/Accounting'], include_blank: true, :class => 'drop' %>
+        <br>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xs-12">
-        <%= p.label "Bio" %>
-        <%= p.text_area :bio, placeholder: "This should describe the ideal candidate", class:'form-control' %>
+        <%= p.label "Ideal Candidate" %>
+        <%= p.text_area :bio, placeholder: "This should describe the ideal candidate, including skills", class:'form-control' %>
         <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= p.label "Linkedin" %>
+      <%= p.text_field :linkedin, placeholder: "url to your linked in profile", class:'form-control' %>
+      <br>
     </div>
   </div>
   <div class="row">

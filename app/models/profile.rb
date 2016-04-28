@@ -12,7 +12,7 @@ class Profile < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('city ILIKE ? OR firstname ILIKE ? OR lastname ILIKE ? OR role ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+      where('city ILIKE ? OR firstname ILIKE ? OR lastname ILIKE ? OR role ILIKE ? OR company ILIKE?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     else
       all
     end
