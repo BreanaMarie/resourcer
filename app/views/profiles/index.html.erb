@@ -95,6 +95,11 @@
                       <%=profile.role%>
                       <% end %>
                     </td>
+                    <td>
+                      <%= link_to "Connect", friendships_path(:friend_id => profile.user), :method => :post, class:"btn btn-primary search" %>
+                      <br>
+                      <%= link_to "View Profile", profile_path(profile), class:"btn btn-danger search" %>
+                    </td>
                   </tr >
                 <%end%>
               <% end %>
