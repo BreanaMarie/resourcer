@@ -4,8 +4,8 @@ class ProfilesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @user = User.find(session[:user_id])
-    @profile = @user.profile
+    # @user = User.find(session[:user_id])
+    # @profile = @user.profile
     if params[:search]
       @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
@@ -14,8 +14,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
-    @profile = @user.profile
+    # @user = User.find(session[:user_id])
+    # @profile = @user.profile
+    @profile=Profile.find(params[:id])
     @current_user = current_user
     @friendships = Friendship.all
     @profiles = Profile.all
