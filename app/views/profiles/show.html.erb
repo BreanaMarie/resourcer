@@ -33,7 +33,17 @@
         </h4>
       </div>
     </div><!-- end row -->
-    <div class="row">
+<div class="row">
+      <div class="col-xs-12">
+        <h3>Sills</h3>
+      </div>
+    </div><!-- end row -->
+      <div class="row">
+        <div class="col-xs-12 employments indent">
+          <p class="e"><%=@profile.skills%></p>
+        </div>
+      </div>
+      <div class="row">
       <div class="col-xs-12">
         <h3>Bio</h3>
       </div>
@@ -50,27 +60,38 @@
       </div><!-- end row -->
       <div class="row">
         <% @profile.employments.each do |e| %>
-        <div class="col-xs-3 employments industry">
+        <div class="row employments industry">
           <div class="indent">
             <%= link_to employment_path(e) do%>
-            <%=e.industry %><br>
-            <%=e.title%>
+            <h4><%=e.title%> at:</h4>
+            <div class="row">
+              <h4><%= e.company %></h4>
+              <div class="col-xs-6">
+                <h5><%=e.city%>, <%= e.state %><h5>
+              </div>
+              <div class="col-xs-6">
+                <h5 class="right"><%=e.industry %></h5>
+              </div>
+            </div>
             <% end %>
           </div>
         </div>
-        <div class="col-xs-3 employments industry">
-          <%= link_to employment_path(e) do%>
-          <span class="glyphicon glyphicon-map-marker" id="location-history" aria-hidden="true"></span>
-          <%=e.city%>, <%= e.state %>
-          <% end %>
-        </div>
-        <div class="col-xs-6 employments">
+
+        <div class="row employments">
           <%= link_to employment_path(e) do%>
           <%=e.summary%>
           <% end %>
         </div>
+        <div class="row">
+          <% if session[:user_id] = @profile.user.id %>
+          <%= link_to "Edit this Employment History", edit_employment_path(e), class:"btn btn-default pull-right" %>
+          <% end %>
+        </div>
         <%end%>
       </div>
+      <% if session[:user_id] = @profile.user.id %>
+        <%= link_to "Add Employment", new_employment_path, class:"btn btn-default pull-right" %>
+      <% end %>
     </div>
   </section>
 <% elsif current_user.profile.seeker == 'sourcer' %>
@@ -100,6 +121,12 @@
       </div>
     </div><!-- end row -->
     <div class="row">
+      <h4>Current Company:
+      <%= @profile.company %></h4> 
+      <h5>Department: <%=@profile.department %></h5>
+    </div>
+    <div class="row">
+
       <div class="col-xs-12 location">
         <h4>
           <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
@@ -109,42 +136,12 @@
     </div><!-- end row -->
     <div class="row">
       <div class="col-xs-12">
-        <h3>Bio</h3>
+        <h3>Ideal Candidate:</h3>
+        <p class="e"><%=@profile.bio%></p>
       </div>
     </div><!-- end row -->
-      <div class="row">
-        <div class="col-xs-12 employments indent">
-          <p class="e"><%=@profile.bio%></p>
-        </div>
-      </div><!-- end row -->
-      <div class="row ">
-        <div class="col-xs-12">
-          <h3>Employment History</h3>
-        </div>
-      </div><!-- end row -->
-      <div class="row">
-        <% @profile.employments.each do |e| %>
-        <div class="col-xs-3 employments industry">
-          <div class="indent">
-            <%= link_to employment_path(e) do%>
-            <%=e.industry %><br>
-            <%=e.title%>
-            <% end %>
-          </div>
-        </div>
-        <div class="col-xs-3 employments industry">
-          <%= link_to employment_path(e) do%>
-          <span class="glyphicon glyphicon-map-marker" id="location-history" aria-hidden="true"></span>
-          <%=e.city%>, <%= e.state %>
-          <% end %>
-        </div>
-        <div class="col-xs-6 employments">
-          <%= link_to employment_path(e) do%>
-          <%=e.summary%>
-          <% end %>
-        </div>
-        <%end%>
-      </div>
+
+     
     </div>
   </section>
 <% else %>
