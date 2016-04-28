@@ -16,11 +16,30 @@
           <%end%>
         </div>
       <div class="col-xs-2 center add-friend">
-        <% if session[:user_id] != @profile.user.id %>
-          <%= link_to "Connect", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
-        <!-- TODO if user is already friends alert already friends  -->
+      <% if session[:user_id] != @profile.user.id %>
+
         <!-- if user is not firends offer creation of friendship -->
-        <%else%>
+        <% for friendship in Friendship.where.not(status: ["confirm", "pending", "ignore"]).where.not('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id).where.not('(friend_id=?) OR (user_id=?)', @profile.user_id, @profile.user_id) %>
+          <%= link_to "Connect", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
+        <% end %>
+
+        <!--  if user is already friends alert already friends  -->
+        <% for friendship in Friendship.where(status: "pending", friend_id: @current_user.id, user_id: @profile.user_id) %>
+          <p>They have requested a connection that is waiting for approval. Please see your notifications.</p>
+        <% end %>
+        <% for friendship in Friendship.where(status: "pending", friend_id: @profile.user_id, user_id: @current_user.id) %>
+          <p>your requested connection is waiting for approval</p>
+        <% end %>
+        <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id).where('(friend_id=?) OR (user_id=?)', @profile.user_id, @profile.user_id) %>
+          <p>you are already connected</p>
+          <% for message in Message.where(friendship_id: friendship) %>
+          <!-- <p><%=message.id%></p> -->
+          <%end%>
+        <% end %>
+        
+        
+
+        <% else %>
          <%= button_to "Edit Profile", edit_profile_path, class:"btn btn-danger", method: :get %>
         <%end%>
       </div>

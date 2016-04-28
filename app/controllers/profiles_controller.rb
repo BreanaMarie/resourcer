@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
   def show
     # @user = User.find(session[:user_id])
     # @profile = @user.profile
+    @messages = Message.all
     @profile=Profile.find(params[:id])
     @current_user = current_user
     @friendships = Friendship.all
