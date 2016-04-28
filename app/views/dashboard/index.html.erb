@@ -60,7 +60,7 @@
             </div>
           <div class="col-xs-2 friendship-btn">
           <!-- this should bechanged to a response resource -->
-            <%= button_to "Respond", new_message_path, :class =>"btn btn-primary center-block", :method => :put %>
+            <%= link_to "Respond", message, :class =>"btn btn-primary center-block", :method => :get %>
           </div>
         </div>
       </div>
@@ -92,9 +92,9 @@
     <hr>
     <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
     <% for friendship in Friendship.where(status: "pending", friend_id: @current_user.id) %>
-    <div class="row notifications">
+      <div class="row notifications">
         <div class="col-xs-3 center" id="avatar">
-          <%= link_to searched_path(friendship.user.profile) do %>
+          <%= link_to profile_path(friendship.user.profile) do %>
             <%= image_tag friendship.user.profile.image %>
           <% end %>
         </div>
@@ -142,7 +142,7 @@
           </div>
         <div class="col-xs-2 friendship-btn">
         <!-- this should bechanged to a response resource -->
-          <%= button_to "Respond", new_message_path, :class =>"btn btn-primary center-block", :method => :put %>
+          <%= link_to "Respond", message, :class =>"btn btn-primary center-block", :method => :get %>
         </div>
       </div>
     </div>
