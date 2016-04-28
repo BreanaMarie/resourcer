@@ -94,6 +94,9 @@
       <% end %>
     </div>
   </section>
+
+
+
 <% elsif current_user.profile.seeker == 'sourcer' %>
   <!-- if profile belongs to a sourcer,  -->
   <section>
@@ -120,13 +123,16 @@
         <%end%>
       </div>
     </div><!-- end row -->
-    <div class="row">
-      <h4>Current Company:
-      <%= @profile.company %></h4> 
-      <h5>Department: <%=@profile.department %></h5>
-    </div>
-    <div class="row">
 
+    <div class="row">
+      <div class="col-xs-12 company">
+        <h4>Current Company:
+        <%= @profile.company %></h4>
+        <h5>Department: <%=@profile.department %></h5>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-xs-12 location">
         <h4>
           <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
@@ -140,10 +146,10 @@
         <p class="e"><%=@profile.bio%></p>
       </div>
     </div><!-- end row -->
-
-     
     </div>
   </section>
+
+
 <% else %>
 <!-- if profile belongs to someone who hasn't filled this section out, don't display content,  -->
   <section>
