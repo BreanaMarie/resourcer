@@ -14,7 +14,7 @@
       <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
       <div class="row notifications">
           <div class="col-xs-3 center" id="avatar">
-            <%= link_to searched_path(friendship.user.profile) do %>
+            <%= link_to profile_path(friendship.user.profile) do %>
               <%= image_tag friendship.user.profile.image %>
             <% end %>
           </div>

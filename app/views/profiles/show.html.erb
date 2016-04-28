@@ -1,5 +1,5 @@
 <!-- condition showing of profile -->
-<% if current_user.profile.seeker == 'candidate' %>
+<% if @profile.seeker == 'candidate' %>
   <!-- if profile belongs to a candidate,  -->
   <section>
     <div class="container compress">
@@ -33,7 +33,7 @@
         </h4>
       </div>
     </div><!-- end row -->
-<div class="row">
+    <div class="row">
       <div class="col-xs-12">
         <h3>Skills</h3>
       </div>
@@ -113,7 +113,8 @@
 
 
 
-<% elsif current_user.profile.seeker == 'sourcer' %>
+
+<% elsif @profile.seeker == 'sourcer' %>
   <!-- if profile belongs to a sourcer,  -->
   <section>
     <div class="container compress">

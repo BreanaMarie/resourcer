@@ -21,7 +21,7 @@
         <li><a href="/dashboard">Dashboard</a></li>
         <li><a href="/profiles/">Search</a></li>
         <li><a href="/messages/">Messages</a></li>
-        <li><a href="/profiles/:id">Profile</a></li>
+        <li><%= link_to "Profile", profile_path(@current_user.profile.id) %></li>
         <li><a href="#">Account</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
