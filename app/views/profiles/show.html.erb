@@ -17,7 +17,7 @@
         </div>
       <div class="col-xs-2 center add-friend">
         <% if session[:user_id] != @profile.user.id %>
-          <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
+          <%= link_to "Connect", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
         <!-- TODO if user is already friends alert already friends  -->
         <!-- if user is not firends offer creation of friendship -->
         <%else%>
@@ -112,7 +112,7 @@
         </div>
       <div class="col-xs-2 center add-friend">
         <% if session[:user_id] != @profile.user.id %>
-          <%= link_to "Add Friend", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
+          <%= link_to "Connect", friendships_path(:friend_id => @profile.user.id), :method => :post, class:"btn btn-danger " %>
         <!-- TODO if user is already friends alert already friends  -->
         <!-- if user is not firends offer creation of friendship -->
         <%else%>
