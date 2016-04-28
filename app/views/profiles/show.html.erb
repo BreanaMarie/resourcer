@@ -35,7 +35,7 @@
     </div><!-- end row -->
 <div class="row">
       <div class="col-xs-12">
-        <h3>Sills</h3>
+        <h3>Skills</h3>
       </div>
     </div><!-- end row -->
       <div class="row">
@@ -53,44 +53,60 @@
           <p class="e"><%=@profile.bio%></p>
         </div>
       </div><!-- end row -->
+
+
+
       <div class="row ">
         <div class="col-xs-12">
           <h3>Employment History</h3>
         </div>
       </div><!-- end row -->
+
+
       <div class="row">
         <% @profile.employments.each do |e| %>
         <div class="row employments industry">
           <div class="indent">
             <%= link_to employment_path(e) do%>
             <h4><%=e.title%> at:</h4>
+
             <div class="row">
               <h4><%= e.company %></h4>
-              <div class="col-xs-6">
-                <h5><%=e.city%>, <%= e.state %><h5>
+
+              <div class="col-xs-8">
+                <h5>Location: <%=e.city%>, <%= e.state %></h5>
+              <!-- </div> -->
+              <!-- <div> -->
+                <h5>Industry: <%=e.industry %></h5>
+              <!-- </div> -->
+
+              <!-- <div> -->
+                <%= link_to employment_path(e) do%>
+                <h5>Summary: <%=e.summary%></h5>
+                <% end %>
               </div>
-              <div class="col-xs-6">
-                <h5 class="right"><%=e.industry %></h5>
+
+              <div class="col-xs-4">
+                <% if session[:user_id] = @profile.user.id %>
+                <%= link_to "Edit this Job", edit_employment_path(e), class:"btn btn-danger pull-right", id:"show" %>
+                <% end %>
               </div>
-            </div>
+            </div><!-- end row -->
+
+
             <% end %>
           </div>
-        </div>
 
-        <div class="row employments">
-          <%= link_to employment_path(e) do%>
-          <%=e.summary%>
-          <% end %>
-        </div>
-        <div class="row">
-          <% if session[:user_id] = @profile.user.id %>
-          <%= link_to "Edit this Employment History", edit_employment_path(e), class:"btn btn-default pull-right" %>
-          <% end %>
-        </div>
-        <%end%>
+
+          <%end%>
+        </div><!-- end row employments industry -->
+
+
+
+
       </div>
       <% if session[:user_id] = @profile.user.id %>
-        <%= link_to "Add Employment", new_employment_path, class:"btn btn-default pull-right" %>
+        <%= link_to "Add Employment", new_employment_path, class:"btn btn-primary pull-right", id:"show" %>
       <% end %>
     </div>
   </section>
