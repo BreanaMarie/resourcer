@@ -11,8 +11,8 @@
       <h1>Notifications</h1>
       <hr>
       <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
-      <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
-      <div class="row notifications">
+      <% for friendship in Friendship.where(status: "pending", friend_id: @current_user.id) %>
+        <div class="row notifications">
           <div class="col-xs-3 center" id="avatar">
             <%= link_to profile_path(friendship.user.profile) do %>
               <%= image_tag friendship.user.profile.image %>
@@ -37,8 +37,7 @@
       <!-- *** TODO for loop where friendship status is confirmed show messages recieved -->
       <!-- this loop finds where the user is part of a friendship that has been confirmed -->
         <% for friendship in Friendship.where(status: "confirm").where('(friend_id=?) OR (user_id=?)', current_user.id, current_user.id) %>
-        <% p "friendship" %>
-        <% p friendship %>
+       
         <!-- print out friendship ids. Save them in array. Do message query for loop iterating over id array Message.where('user_id=?', friendship.id) -->
         <!-- this loop takes the friendships that were confirmed that have the current user in them, and find all the messages with that id in the firdship_id column of the message -->
           <% for message in Message.where(friendship_id: friendship) %>
@@ -92,7 +91,7 @@
     <h1>Notifications</h1>
     <hr>
     <!-- show pending firendship where current user is under friend_id; this prevents users who sent the request from seeing their own request as pending and changing the confirmation status; Status should only be available to the the person recieving the request-->
-    <% for friendship in Friendship.where(status: "pending", friend_id: current_user.id) %>
+    <% for friendship in Friendship.where(status: "pending", friend_id: @current_user.id) %>
     <div class="row notifications">
         <div class="col-xs-3 center" id="avatar">
           <%= link_to searched_path(friendship.user.profile) do %>
