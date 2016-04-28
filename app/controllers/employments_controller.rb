@@ -18,7 +18,7 @@ class EmploymentsController < ApplicationController
     employment_params = params.require(:employment).permit(:profile_id, :industry, :title, :company, :companyimg, :city, :state, :summary, :startdate, :enddate, :status)
     @employment = Employment.create(employment_params)
     if @employment.save
-      redirect_to @employment
+      redirect_to current_user.profile
     else
       render :new
     end
@@ -33,7 +33,7 @@ class EmploymentsController < ApplicationController
     @employment = Employment.find(params[:id])
     employment_params = params.require(:employment).permit(:profile_id, :industry, :title, :company, :companyimg, :city, :state, :summary, :startdate, :enddate, :status)
     @employment.update_attributes(employment_params)
-    
+    redirect_to current_user.profile
   end
 
   def destroy
