@@ -1,7 +1,6 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .searchnav {
 	padding-top: 90px;
 }
@@ -23,7 +22,6 @@
 }
 
 .seeker{
-// margin: 20px 100px 0px 100px;
 margin-top: 20px;
 }
 
@@ -54,6 +52,37 @@ margin-top: 20px;
 /////////////////////////////////////
 ////// search results /////// //////
 ///////////////////////////////////
+.table img {
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+}
+
+.table > img, .thumbnail a > img {
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+}
+
+th a {
+		color: #424242;
+		font-size: 14pt;
+}
+
+td a {
+	color: #757575;
+	font-size: 12pt;
+}
+
+th a:hover {
+		color: #ff4056;
+}
+
+td a:hover {
+	color: #ff4056;
+}
+
+
 .result {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -85,6 +114,7 @@ margin-top: 20px;
 
 .result-detail a:hover {
 	text-decoration: none;
+	color: #ff4056;
 }
 
 #name {
@@ -100,15 +130,26 @@ font-size: 10pt;
 	font-size:12pt;
 }
 
+#show-edit {
+	width: 150px;
+	color: #ff4056;
+}
+
+#show {
+	width: 150px;
+}
+
+
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {  /*safari and chrome*/
 	select {
 		height:30px;
 		line-height:30px;
 		background:#f4f4f4;
-	} 
+	}
 }
 
-select::-moz-focus-inner { /*Remove button padding in FF*/ 
+select::-moz-focus-inner { /*Remove button padding in FF*/
 	border: 0;
 	padding: 0;
 }
@@ -117,11 +158,11 @@ select::-moz-focus-inner { /*Remove button padding in FF*/
 	select {
 		padding: 15px 0!important;
 	}
-}   
+}
 
-@media screen\0 { /* IE Hacks: targets IE 8, 9 and 10 */        
+@media screen\0 { /* IE Hacks: targets IE 8, 9 and 10 */
 	select {
 		height:30px;
 		line-height:30px;
-	}     
+	}
 }
