@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   def index
     # @user = User.find(session[:user_id])
     # @profile = @user.profile
+    
     if params[:search]
       @profiles = Profile.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
