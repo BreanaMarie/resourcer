@@ -1,5 +1,5 @@
 <section>
-  <div class="container">
+  <div class="container-fixed compress">
     <div class="row">
       <div class="col-xs-4 searchnav">
         <h4>Search by Keyword</h4>
@@ -10,99 +10,105 @@
           <p>
             <%= text_field_tag :search, params[:search], placeholder: "Search Profiles", class: "form-group" %>
           </p>
-          <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
 
         <% end %>
       </div>
+
+      <!-- if current user is a candidate -->
       <div class="col-xs-8">
         <div id="profiles"><%= render 'profiles' %></div>
-
-            <table class="table thumbnail" width:"100%">
-              <tr>
-                <th></th>
-                <th><%= sortable 'firstname' %></th>
-                <th><%= sortable 'lastname' %></th>
-                <th><%= sortable 'city' %></th>
-                <th><%= sortable 'role' %></th>
-                <th><%= sortable 'comapny' %></th>
-              </tr>
               <% if current_user.profile.seeker == 'candidate' %>
+              <div class="container-fixed">
                 <% for profile in @profiles.where(seeker: "sourcer") %>
-                  <tr>
-                    <td>
+                  <div class="row result center">
+
+                    <div class="col-xs-4 result-info">
                       <%= link_to searched_path(profile) do%>
                       <img src="<%=profile.image %>">
                       <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.firstname%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.lastname%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.city%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.role%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.company%>
-                      <% end %>
-                    </td>
-                  </tr >
-                <%end%>
+                    </div><!-- end column -->
+
+                    <div class="col-xs-4 result-info">
+                      <div class="result-detail left" id="name">
+                        <%= link_to searched_path(profile) do%>
+                        <%=profile.firstname%>
+                        <% end %>
+                        <%= link_to searched_path(profile) do%>
+                        <%=profile.lastname%>
+                        <% end %>
+                      </div>
+
+                      <div class="result-detail left" id="role">
+                        <%= link_to searched_path(profile) do%>
+                        <%=profile.role%>
+                        <% end %>
+                      </div>
+
+                      <div class="result-detail left" id="city">
+                        <%= link_to searched_path(profile) do%>
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        <%=profile.city%>
+                        <% end %>
+                      </div>
+                    </div><!-- end column -->
+
+                    <div class="col-xs-4 result-info">
+                      <%= link_to "Connect", friendships_path(:friend_id => @profile.user), :method => :post, class:"btn btn-primary search" %>
+                      <br>
+                      <%= link_to "View Profile", searched_path(profile), class:"btn btn-danger search" %>
+                    </div><!-- end column -->
+                  </div><!-- end row -->
+                  <%end%>
+              </div>
+
+              <!-- if current user is a sourcer -->
               <% elsif current_user.profile.seeker == 'sourcer' %>
-                <% for profile in @profiles.where(seeker: "candidate") %>
-                  <tr>
-                    <td>
+              <div class="container-fixed">
+                <% for profile in @profiles.where(seeker: "sourcer") %>
+                  <div class="row result center">
+                    <div class="col-xs-4 result-info">
                       <%= link_to searched_path(profile) do%>
                       <img src="<%=profile.image %>">
                       <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.firstname%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.lastname%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.city%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.role%>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to searched_path(profile) do%>
-                      <%=profile.company%>
-                      <% end %>
-                    </td>
-                  </tr >
-                <%end%>
-              <% end %>
-            </table>
+                    </div><!-- end row -->
+
+                    <div class="col-xs-4 result-info">
+                      <div class="result-detail left" id="name">
+                        <%= link_to searched_path(profile) do%>
+                        <%=profile.firstname%>
+                        <% end %>
+
+                        <%= link_to searched_path(profile) do%>
+                        <%=profile.lastname%>
+                        <% end %>
+                      </div>
+
+                      <div class="result-detail left" id="role">
+                        <%= link_to searched_path(profile) do%>
+                        <%=profile.role%>
+                        <% end %>
+                      </div>
+
+                      <div class="result-detail left" id="city">
+                        <%= link_to searched_path(profile) do%>
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        <%=profile.city%>
+                        <% end %>
+                      </div>
+                    </div><!-- end column -->
+
+                    <div class="col-xs-4 result-info">
+                      <%= link_to "Connect", friendships_path(:friend_id => @profile.user), :method => :post, class:"btn btn-primary search" %>
+                      <br>
+                      <%= link_to "View Profile", searched_path(profile), class:"btn btn-danger search" %>
+                    </div>
+                  </div><!-- end row -->
+                  <%end%>
+              </div>
+            <% end %>
             <%= will_paginate @profiles %>
-      </div>
-
+      </div> <!-- end col-xs-8 -->
     </div>
-
-
   </div>
 </section>
