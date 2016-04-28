@@ -2,36 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.thumbnail img{
-	width: 100px;
-	height: 100px;
-	border-radius: 100%;
-}
-
 .searchnav {
-	padding-top: 10%;
+	padding-top: 90px;
 }
-.pretty td, .pretty th{
-	padding: 4px 10px;
-}
-
-.pretty th .current {
-  padding-right: 12px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.pretty th .asc {
-  background-image: url(/images/up_arrow.png);
-  background-size: cover;
-}
-
-.pretty th .desc {
-  background-image: url(/images/down_arrow.png);
-  background-size: cover;
-}
-
-
 
 /////////////////////////////////////
 ////////// profile forms ///////////
@@ -72,11 +45,57 @@ margin-top: 20px;
 }
 
 /////////////////////////////////////
-////// search results - index //////
+////// pagination /////////// //////
 ///////////////////////////////////
+#profiles {
+	margin-top: 20px;
+}
 
+/////////////////////////////////////
+////// search results /////// //////
+///////////////////////////////////
 .result {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border:0.1em solid #EEEEEE;
+	border:0.2em solid #EEEEEE;
+	border-radius: 5px;
+}
+
+.result-info {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.result-info img {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+}
+
+.btn {
+	font-size: 11pt;
+	margin: 5px;
+	width: 120px;
+}
+
+.result-detail a {
+	text-decoration: none;
+  color: #616161;
+}
+
+.result-detail a:hover {
+	text-decoration: none;
+}
+
+#name {
+	font-size: 15pt;
+	font-weight: bold;
+}
+
+#city {
+font-size: 10pt;
+}
+
+#role {
+	font-size:12pt;
 }

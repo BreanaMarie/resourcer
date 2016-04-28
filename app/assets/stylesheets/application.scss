@@ -266,9 +266,13 @@ button:active {
 	box-shadow: none;
 }
 
+
 /////////////////////////////////
 ////////// primary buttons /////
 ///////////////////////////////
+.btn {
+	width: 200px;
+}
 
 .btn-primary {
 	font-size: 20px;
