@@ -5,10 +5,10 @@ class FriendshipsController < ApplicationController
     if @friendship.save
       flash[:notice] = "Added friend."
       friend_request
-      redirect_to current_user.profile
+      redirect_to dashboard_index_path
     else
       flash[:error] = "Unable to add friend."
-      redirect_to current_user.profile
+      redirect_to dashboard_index_path
     end
   end
 
