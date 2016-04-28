@@ -1,5 +1,5 @@
 <!-- condition showing of profile -->
-<% if current_user.profile.seeker == 'candidate' %>
+<% if @profile.seeker == 'candidate' %>
   <!-- if profile belongs to a candidate,  -->
   <section>
     <div class="container compress">
@@ -94,7 +94,7 @@
       <% end %>
     </div>
   </section>
-<% elsif current_user.profile.seeker == 'sourcer' %>
+<% elsif @profile.seeker == 'sourcer' %>
   <!-- if profile belongs to a sourcer,  -->
   <section>
     <div class="container compress">
