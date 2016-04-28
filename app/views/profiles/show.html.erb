@@ -97,7 +97,7 @@
               </div>
 
               <div class="col-xs-4">
-                <% if session[:user_id] = @profile.user.id %>
+                <% if session[:user_id] == @profile.user.id %>
                 <%= link_to "Edit this Job", edit_employment_path(e), class:"btn btn-danger pull-right", id:"show-edit" %>
                 <% end %>
               </div>
@@ -109,7 +109,7 @@
         </div><!-- end row employments industry -->
           <div class="row">
             <div class="col-xs-12 center">
-              <% if session[:user_id] = @profile.user.id %>
+              <% if session[:user_id] == @profile.user.id %>
                 <%= link_to "Add Employment", new_employment_path, class:"btn btn-primary pull-right", id:"show" %>
               <% end %>
             </div>
